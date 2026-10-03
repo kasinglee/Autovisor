@@ -1,0 +1,26 @@
+[user-account]
+username =
+password =
+
+[browser-option]
+driver = Chrome
+EXE_PATH =
+attachExistingChrome = False
+
+[script-option]
+enableAutoCaptcha = False
+enableVisionCaptcha = True
+enableHideWindow = False
+showDonateCode = False
+
+[vision-option]
+provider = llama
+localUrl = http://127.0.0.1:8091
+
+[course-option]
+limitMaxTime = 5
+limitSpeed = 1.0
+soundOff = True
+
+[course-url]
+URL1 =

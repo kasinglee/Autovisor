@@ -27,6 +27,8 @@ class Config:
             # 脚本选项
             self.enableAutoCaptcha = self.get_bool_field('script-option', 'enableAutoCaptcha')
             self.enableVisionCaptcha = self.get_bool_field('script-option', 'enableVisionCaptcha', fallback=False)
+            self.vision_provider = self._config.get('vision-option', 'provider', fallback='deepseek').strip().lower()
+            self.vision_local_url = self._config.get('vision-option', 'localUrl', fallback='http://127.0.0.1:8091').strip()
             self.enableHideWindow = self.get_bool_field('script-option', 'enableHideWindow')
             self.showDonateCode = self.get_bool_field("script-option", "showDonateCode")
             # 课程选项

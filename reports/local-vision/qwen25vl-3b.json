@@ -1,0 +1,330 @@
+{
+  "model": "qwen25vl-3b",
+  "devices": "Available devices:\n  BLAS: Accelerate (0 MiB, 0 MiB free)\n  MTL0: Apple M4 (10922 MiB, 10922 MiB free)\n",
+  "memory_limit_gb": 8,
+  "method": "Annotated real and synthetic screenshots; supplied English instruction; JSON constrained decoding. Not live platform pass rate. RSS excludes some Metal allocations.",
+  "runs": [
+    {
+      "backend": "metal",
+      "cases": [
+        {
+          "id": "blue-cube",
+          "seconds": 4.75,
+          "raw": "{\n  \"target\": \"blue cube\",\n  \"center_px\": [800, 280],\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 37,
+            "prompt_tokens": 696,
+            "total_tokens": 733,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 696,
+            "prompt_ms": 3590.725,
+            "prompt_per_token_ms": 5.159087643678161,
+            "prompt_per_second": 193.8327218040925,
+            "predicted_n": 37,
+            "predicted_ms": 1112.207,
+            "predicted_per_token_ms": 30.894638888888892,
+            "predicted_per_second": 32.36807536726526
+          },
+          "point_inside_expected_box": true
+        },
+        {
+          "id": "number-orientation",
+          "seconds": 4.58,
+          "raw": "{\"target\":\"number 1\",\"center_px\":[537,300],\"uncertain\":false}",
+          "usage": {
+            "completion_tokens": 28,
+            "prompt_tokens": 713,
+            "total_tokens": 741,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 695,
+            "prompt_ms": 3721.388,
+            "prompt_per_token_ms": 5.354515107913669,
+            "prompt_per_second": 186.75827406333337,
+            "predicted_n": 28,
+            "predicted_ms": 831.155,
+            "predicted_per_token_ms": 30.783518518518516,
+            "predicted_per_second": 32.484915569298145
+          },
+          "point_inside_expected_box": true
+        },
+        {
+          "id": "sideways-S",
+          "seconds": 4.74,
+          "raw": "{\n  \"target\": \"S\",\n  \"center_px\": [389, 300],\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 36,
+            "prompt_tokens": 699,
+            "total_tokens": 735,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 681,
+            "prompt_ms": 3647.383,
+            "prompt_per_token_ms": 5.355922173274596,
+            "prompt_per_second": 186.7092104119584,
+            "predicted_n": 36,
+            "predicted_ms": 1042.303,
+            "predicted_per_token_ms": 29.78008571428572,
+            "predicted_per_second": 33.57948696300404
+          },
+          "point_inside_expected_box": false
+        },
+        {
+          "id": "synthetic-green-F",
+          "seconds": 4.3,
+          "raw": "{\n  \"target\": \"F\",\n  \"center_px\": [140, 210],\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 36,
+            "prompt_tokens": 707,
+            "total_tokens": 743,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 689,
+            "prompt_ms": 3458.068,
+            "prompt_per_token_ms": 5.018966618287373,
+            "prompt_per_second": 199.24420225397535,
+            "predicted_n": 36,
+            "predicted_ms": 798.906,
+            "predicted_per_token_ms": 22.825885714285715,
+            "predicted_per_second": 43.809910051996106
+          },
+          "point_inside_expected_box": false
+        },
+        {
+          "id": "synthetic-blue-cube",
+          "seconds": 3.63,
+          "raw": "{\n  \"target\": \"blue cube\",\n  \"center_px\": [728, 300],\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 37,
+            "prompt_tokens": 696,
+            "total_tokens": 733,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 678,
+            "prompt_ms": 2801.404,
+            "prompt_per_token_ms": 4.131864306784661,
+            "prompt_per_second": 242.02150064753243,
+            "predicted_n": 37,
+            "predicted_ms": 805.078,
+            "predicted_per_token_ms": 22.36327777777778,
+            "predicted_per_second": 44.71616414807012
+          },
+          "point_inside_expected_box": true
+        }
+      ],
+      "command": [
+        "/opt/homebrew/bin/llama-server",
+        "-m",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b/model.gguf",
+        "--mmproj",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b/mmproj.gguf",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "-c",
+        "4096",
+        "--parallel",
+        "1",
+        "-t",
+        "4",
+        "--alias",
+        "local-vision",
+        "--device",
+        "MTL0",
+        "-ngl",
+        "99"
+      ],
+      "load_seconds": 3.66,
+      "status": "completed",
+      "peak_rss_mb": 1636.5,
+      "memory_breakdown_lines": []
+    },
+    {
+      "backend": "cpu",
+      "cases": [
+        {
+          "id": "blue-cube",
+          "seconds": 47.89,
+          "raw": "{\n  \"target\": \"blue cube\",\n  \"center_px\": [800, 280],\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 37,
+            "prompt_tokens": 696,
+            "total_tokens": 733,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 696,
+            "prompt_ms": 46346.124,
+            "prompt_per_token_ms": 66.58925862068966,
+            "prompt_per_second": 15.017437056872328,
+            "predicted_n": 37,
+            "predicted_ms": 1499.032,
+            "predicted_per_token_ms": 41.63977777777777,
+            "predicted_per_second": 24.01549800137689
+          },
+          "point_inside_expected_box": true
+        },
+        {
+          "id": "number-orientation",
+          "seconds": 43.95,
+          "raw": "{\n  \"target\": \"number 1\",\n  \"center_px\": [537, 292],\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 38,
+            "prompt_tokens": 713,
+            "total_tokens": 751,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 695,
+            "prompt_ms": 42567.483,
+            "prompt_per_token_ms": 61.24817697841727,
+            "prompt_per_second": 16.3270165633237,
+            "predicted_n": 38,
+            "predicted_ms": 1356.689,
+            "predicted_per_token_ms": 36.66727027027027,
+            "predicted_per_second": 27.272278318759863
+          },
+          "point_inside_expected_box": true
+        },
+        {
+          "id": "sideways-S",
+          "seconds": 45.08,
+          "raw": "{\n  \"target\": \"S\",\n  \"center_px\": [409, 299],\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 36,
+            "prompt_tokens": 699,
+            "total_tokens": 735,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 681,
+            "prompt_ms": 43670.153,
+            "prompt_per_token_ms": 64.12650954478707,
+            "prompt_per_second": 15.59417481317274,
+            "predicted_n": 36,
+            "predicted_ms": 1381.091,
+            "predicted_per_token_ms": 39.45974285714286,
+            "predicted_per_second": 25.34228374524199
+          },
+          "point_inside_expected_box": false
+        },
+        {
+          "id": "synthetic-green-F",
+          "seconds": 50.44,
+          "raw": "{\n  \"target\": \"F\",\n  \"center_px\": [140, 210],\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 36,
+            "prompt_tokens": 707,
+            "total_tokens": 743,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 689,
+            "prompt_ms": 49036.493,
+            "prompt_per_token_ms": 71.17052685050798,
+            "prompt_per_second": 14.050760114513082,
+            "predicted_n": 36,
+            "predicted_ms": 1381.238,
+            "predicted_per_token_ms": 39.46394285714286,
+            "predicted_per_second": 25.339586660662388
+          },
+          "point_inside_expected_box": false
+        },
+        {
+          "id": "synthetic-blue-cube",
+          "seconds": 45.19,
+          "raw": "{\n  \"target\": \"blue cube\",\n  \"center_px\": [728, 300],\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 37,
+            "prompt_tokens": 696,
+            "total_tokens": 733,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 678,
+            "prompt_ms": 43668.936,
+            "prompt_per_token_ms": 64.40846017699116,
+            "prompt_per_second": 15.52591068396995,
+            "predicted_n": 37,
+            "predicted_ms": 1485.974,
+            "predicted_per_token_ms": 41.277055555555556,
+            "predicted_per_second": 24.226534246225036
+          },
+          "point_inside_expected_box": true
+        }
+      ],
+      "command": [
+        "/opt/homebrew/bin/llama-server",
+        "-m",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b/model.gguf",
+        "--mmproj",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b/mmproj.gguf",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "-c",
+        "4096",
+        "--parallel",
+        "1",
+        "-t",
+        "4",
+        "--alias",
+        "local-vision",
+        "--device",
+        "none",
+        "-ngl",
+        "0",
+        "--no-mmproj-offload",
+        "--no-op-offload"
+      ],
+      "load_seconds": 3.08,
+      "status": "completed",
+      "peak_rss_mb": 4350.0,
+      "memory_breakdown_lines": []
+    },
+    {
+      "backend": "cuda",
+      "cases": [],
+      "status": "unavailable",
+      "error": "No cuda device: install a llama.cpp build with that backend"
+    }
+  ]
+}

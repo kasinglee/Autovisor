@@ -8,6 +8,7 @@ import json
 import math
 import os
 from pathlib import Path
+from urllib.parse import urlparse
 
 import httpx
 from PIL import Image
@@ -68,7 +69,7 @@ async def visible_locator(page, selectors):
     return None
 
 
-async def attempt_course_verification(page, logger):
+async def attempt_course_verification(page, logger, config=None):
     """Three attempts per visible dialog; failures return to manual waiting."""
     for attempt in range(1, 4):
         dialog = await visible_locator(page, (".yidun_modal", ".yidun_popup"))
@@ -120,19 +121,43 @@ async def attempt_course_verification(page, logger):
                     }},
                 ]}],
             }
-            key = await api_key()
+            provider = getattr(config, "vision_provider", "deepseek")
+            if provider == "llama":
+                local_url = getattr(config, "vision_local_url", "http://127.0.0.1:8091").rstrip("/")
+                parsed = urlparse(local_url)
+                if parsed.scheme != "http" or parsed.hostname not in {"127.0.0.1", "localhost", "::1"} or parsed.username or parsed.password:
+                    raise ValueError("Local vision URL must be localhost HTTP")
+                endpoint = local_url + "/v1/chat/completions"
+                payload["model"] = "local-vision"
+                payload.pop("thinking", None)
+                from modules.local_vision import point_response_format
+                payload["response_format"] = point_response_format()
+                payload["messages"][0]["content"][0]["text"] = (
+                    f"题目：{prompt}。图片尺寸为{enlarged.width}x{enlarged.height}像素。"
+                    "根据题目定位单个目标，区分大小写、颜色和立体朝向。"
+                    "输出JSON字段 target、center_px、uncertain。"
+                    "center_px为附件图像内目标正面的绝对像素[x,y]，左上角为[0,0]，"
+                    f"右下角为[{enlarged.width-1},{enlarged.height-1}]。"
+                    "不确定时uncertain=true，不要猜测。"
+                )
+                headers = {}
+            elif provider == "deepseek":
+                endpoint = "https://api.deepseek.com/chat/completions"
+                headers = {"Authorization": "Bearer " + await api_key()}
+            else:
+                raise ValueError("Unknown vision provider")
             logger.event("视觉验证请求", 次数=attempt, 图像=fingerprint, 尺寸=str(size))
-            async with httpx.AsyncClient(timeout=45, follow_redirects=False) as client:
+            async with httpx.AsyncClient(timeout=120 if provider == "llama" else 45, follow_redirects=False, trust_env=provider != "llama") as client:
                 response = await client.post(
-                    "https://api.deepseek.com/chat/completions",
-                    headers={"Authorization": "Bearer " + key}, json=payload,
+                    endpoint, headers=headers, json=payload,
                 )
             if response.status_code != 200:
-                logger.warn(f"DeepSeek 请求失败 HTTP {response.status_code}，请手动验证.")
+                logger.warn(f"视觉模型请求失败 HTTP {response.status_code}，请手动验证.")
                 return False
             content = response.json()["choices"][0]["message"]["content"]
             logger.event("视觉验证模型答案", 答案=content[:1800])
-            point = parse_point(content, 1000, 1000)
+            point_size = (enlarged.width, enlarged.height) if provider == "llama" else (1000, 1000)
+            point = parse_point(content, *point_size)
             if not await dialog.is_visible():
                 return True
             if image_src != await image.get_attribute("src"):
@@ -142,7 +167,7 @@ async def attempt_course_verification(page, logger):
             image_box = await image.bounding_box()
             if not box or not image_box:
                 return False
-            x, y = to_page_point(point, (1000, 1000), image_box)
+            x, y = to_page_point(point, point_size, image_box)
             if not (
                 image_box["x"] + 5 < x < image_box["x"] + image_box["width"] - 5
                 and image_box["y"] + 5 < y < image_box["y"] + image_box["height"] - 5
@@ -151,7 +176,7 @@ async def attempt_course_verification(page, logger):
             # 再检查图片右上角刷新按钮区域，避免误点触发新题。
             if x > image_box["x"] + image_box["width"] - 45 and y < image_box["y"] + 45:
                 raise ValueError("模型目标落在刷新按钮区域")
-            logger.event("视觉验证点击", 次数=attempt, 图片归一化坐标=str(point), 页面坐标=str((round(x, 1), round(y, 1))))
+            logger.event("视觉验证点击", 次数=attempt, 模型坐标=str(point), 坐标范围=str(point_size), 页面坐标=str((round(x, 1), round(y, 1))))
             await page.mouse.click(x, y)
             try:
                 await dialog.wait_for(state="hidden", timeout=6000)

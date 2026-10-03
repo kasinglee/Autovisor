@@ -303,7 +303,7 @@ async def wait_for_verify(page: Page, config, event_loop) -> None:
                 await display_window(page)
             if getattr(config, "enableVisionCaptcha", False):
                 from modules.vision_verification import attempt_course_verification
-                await attempt_course_verification(page, logger)
+                await attempt_course_verification(page, logger, config)
             await wait_until_verification_hidden(page)
             event_loop.set()
             if config.enableHideWindow:

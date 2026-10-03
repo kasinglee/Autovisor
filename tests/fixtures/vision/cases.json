@@ -1,0 +1,94 @@
+[
+  {
+    "id": "blue-cube",
+    "file": "blue-cube.png",
+    "crop": [
+      16,
+      67,
+      336,
+      227
+    ],
+    "instruction_en": "Click the blue cube",
+    "instruction_zh": "请点击蓝色立方体",
+    "expected_box_1000": [
+      780,
+      380,
+      890,
+      650
+    ]
+  },
+  {
+    "id": "number-orientation",
+    "file": "number-orientation.png",
+    "crop": [
+      16,
+      67,
+      336,
+      227
+    ],
+    "instruction_en": "Click the number 1 with the same 3D facing direction as uppercase B",
+    "instruction_zh": "请点击大写B朝向一样的数字1",
+    "expected_box_1000": [
+      530,
+      530,
+      630,
+      840
+    ]
+  },
+  {
+    "id": "sideways-S",
+    "file": "sideways-S.png",
+    "crop": [
+      16,
+      67,
+      336,
+      227
+    ],
+    "instruction_en": "Click the sideways uppercase S",
+    "instruction_zh": "请点击侧向的大写S",
+    "expected_box_1000": [
+      610,
+      490,
+      735,
+      830
+    ]
+  },
+  {
+    "id": "synthetic-green-F",
+    "file": "synthetic-green-F.png",
+    "crop": [
+      16,
+      67,
+      336,
+      227
+    ],
+    "instruction_en": "Click the uppercase F with the same color as S",
+    "instruction_zh": "请点击大写S颜色一样的大写F",
+    "expected_box_1000": [
+      155,
+      560,
+      300,
+      930
+    ],
+    "synthetic": true
+  },
+  {
+    "id": "synthetic-blue-cube",
+    "file": "synthetic-blue-cube.png",
+    "crop": [
+      16,
+      67,
+      336,
+      227
+    ],
+    "instruction_en": "Click the blue cube",
+    "instruction_zh": "请点击蓝色立方体",
+    "expected_box_1000": [
+      650,
+      538,
+      822,
+      882
+    ],
+    "synthetic": true
+  }
+]

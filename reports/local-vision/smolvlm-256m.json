@@ -1,0 +1,348 @@
+{
+  "model": "smolvlm-256m",
+  "devices": "Available devices:\n  BLAS: Accelerate (0 MiB, 0 MiB free)\n  MTL0: Apple M4 (10922 MiB, 10922 MiB free)\n",
+  "memory_limit_gb": 8,
+  "method": "Annotated real and synthetic screenshots; supplied English instruction; JSON constrained decoding; absolute image-pixel output checked against normalized target boxes. Not live platform pass rate. RSS excludes some Metal allocations.",
+  "runs": [
+    {
+      "backend": "cpu",
+      "cases": [
+        {
+          "id": "blue-cube",
+          "seconds": 7.26,
+          "raw": "{ \"target\": \"92\", \"center_px\": [959, 479], \"uncertain\": false}",
+          "usage": {
+            "completion_tokens": 33,
+            "prompt_tokens": 321,
+            "total_tokens": 354,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 321,
+            "prompt_ms": 7095.567,
+            "prompt_per_token_ms": 22.104570093457944,
+            "prompt_per_second": 45.23951362872058,
+            "predicted_n": 33,
+            "predicted_ms": 141.478,
+            "predicted_per_token_ms": 4.4211875,
+            "predicted_per_second": 226.1835762450699
+          },
+          "point_inside_expected_box": false
+        },
+        {
+          "id": "number-orientation",
+          "seconds": 7.54,
+          "raw": "{ \"target\": \"object name\",\"center_px\":[959,479],\"uncertain\":false}",
+          "usage": {
+            "completion_tokens": 31,
+            "prompt_tokens": 338,
+            "total_tokens": 369,
+            "prompt_tokens_details": {
+              "cached_tokens": 7
+            }
+          },
+          "timings": {
+            "cache_n": 7,
+            "prompt_n": 331,
+            "prompt_ms": 7386.296,
+            "prompt_per_token_ms": 22.315093655589124,
+            "prompt_per_second": 44.81271803891964,
+            "predicted_n": 31,
+            "predicted_ms": 131.2,
+            "predicted_per_token_ms": 4.373333333333333,
+            "predicted_per_second": 228.65853658536588
+          },
+          "point_inside_expected_box": false
+        },
+        {
+          "id": "sideways-S",
+          "seconds": 7.8,
+          "raw": "{\n\"target\": \"object name\",\n\"center_px\": [959, 479],\n\"uncertain\": false}",
+          "usage": {
+            "completion_tokens": 35,
+            "prompt_tokens": 321,
+            "total_tokens": 356,
+            "prompt_tokens_details": {
+              "cached_tokens": 7
+            }
+          },
+          "timings": {
+            "cache_n": 7,
+            "prompt_n": 314,
+            "prompt_ms": 7563.605,
+            "prompt_per_token_ms": 24.087914012738853,
+            "prompt_per_second": 41.51459522278068,
+            "predicted_n": 35,
+            "predicted_ms": 215.741,
+            "predicted_per_token_ms": 6.345323529411765,
+            "predicted_per_second": 157.59637713740085
+          },
+          "point_inside_expected_box": false
+        },
+        {
+          "id": "synthetic-green-F",
+          "seconds": 7.43,
+          "raw": "{\n  \"target\": \"F\",\n  \"center_px\": [\n   100,\n   100\n  ],\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 35,
+            "prompt_tokens": 334,
+            "total_tokens": 369,
+            "prompt_tokens_details": {
+              "cached_tokens": 7
+            }
+          },
+          "timings": {
+            "cache_n": 7,
+            "prompt_n": 327,
+            "prompt_ms": 7267.838,
+            "prompt_per_token_ms": 22.225804281345564,
+            "prompt_per_second": 44.99274749932511,
+            "predicted_n": 35,
+            "predicted_ms": 139.087,
+            "predicted_per_token_ms": 4.090794117647058,
+            "predicted_per_second": 244.4513146447907
+          },
+          "point_inside_expected_box": false
+        },
+        {
+          "id": "synthetic-blue-cube",
+          "seconds": 7.25,
+          "raw": "{ \"target\": \"object name\", \"center_px\": [959, 479],\"uncertain\":false}",
+          "usage": {
+            "completion_tokens": 33,
+            "prompt_tokens": 321,
+            "total_tokens": 354,
+            "prompt_tokens_details": {
+              "cached_tokens": 118
+            }
+          },
+          "timings": {
+            "cache_n": 118,
+            "prompt_n": 203,
+            "prompt_ms": 7100.959,
+            "prompt_per_token_ms": 34.98009359605911,
+            "prompt_per_second": 28.587687944684653,
+            "predicted_n": 33,
+            "predicted_ms": 132.156,
+            "predicted_per_token_ms": 4.129875,
+            "predicted_per_second": 242.13807923968642
+          },
+          "point_inside_expected_box": false
+        }
+      ],
+      "command": [
+        "/opt/homebrew/bin/llama-server",
+        "-m",
+        "/Users/jasonlei/.cache/autovisor-models/smolvlm-256m/model.gguf",
+        "--mmproj",
+        "/Users/jasonlei/.cache/autovisor-models/smolvlm-256m/mmproj.gguf",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "-c",
+        "4096",
+        "--parallel",
+        "1",
+        "-t",
+        "4",
+        "--alias",
+        "local-vision",
+        "--verbosity",
+        "4",
+        "--device",
+        "none",
+        "-ngl",
+        "0",
+        "--no-mmproj-offload",
+        "--no-op-offload"
+      ],
+      "load_seconds": 1.06,
+      "status": "completed",
+      "peak_rss_mb": 740.4,
+      "memory_breakdown_lines": [
+        "0.00.123.995 I common_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   model   context   compute    unaccounted |",
+        "0.00.123.997 I common_memory_breakdown_print: |   - Host               |                  153 =    28 +      90 +      35                |",
+        "0.00.123.997 I common_memory_breakdown_print: |   - CPU_REPACK         |                  136 =   136 +       0 +       0                |",
+        "0.38.411.604 I common_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   model   context   compute    unaccounted |",
+        "0.38.411.606 I common_memory_breakdown_print: |   - Host               |                  243 =   135 +      90 +      17                |",
+        "0.38.411.606 I common_memory_breakdown_print: |   - CPU_REPACK         |                  136 =   136 +       0 +       0                |"
+      ]
+    },
+    {
+      "backend": "metal",
+      "cases": [
+        {
+          "id": "blue-cube",
+          "seconds": 0.48,
+          "raw": "{ \"target\": \"92\", \"center_px\": [959, 479], \"uncertain\": false}",
+          "usage": {
+            "completion_tokens": 33,
+            "prompt_tokens": 321,
+            "total_tokens": 354,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 321,
+            "prompt_ms": 330.494,
+            "prompt_per_token_ms": 1.029576323987539,
+            "prompt_per_second": 971.273306020684,
+            "predicted_n": 33,
+            "predicted_ms": 127.57,
+            "predicted_per_token_ms": 3.9865625,
+            "predicted_per_second": 250.84267461001804
+          },
+          "point_inside_expected_box": false
+        },
+        {
+          "id": "number-orientation",
+          "seconds": 0.6,
+          "raw": "{ \"target\": \"object name\",\"center_px\":[959,479],\"uncertain\":false}",
+          "usage": {
+            "completion_tokens": 31,
+            "prompt_tokens": 338,
+            "total_tokens": 369,
+            "prompt_tokens_details": {
+              "cached_tokens": 7
+            }
+          },
+          "timings": {
+            "cache_n": 7,
+            "prompt_n": 331,
+            "prompt_ms": 387.933,
+            "prompt_per_token_ms": 1.1720030211480363,
+            "prompt_per_second": 853.2401213611629,
+            "predicted_n": 31,
+            "predicted_ms": 185.758,
+            "predicted_per_token_ms": 6.191933333333334,
+            "predicted_per_second": 161.50044681790285
+          },
+          "point_inside_expected_box": false
+        },
+        {
+          "id": "sideways-S",
+          "seconds": 0.54,
+          "raw": "{\n\"target\": \"object name\",\n\"center_px\": [959,479],\n\"uncertain\": false}",
+          "usage": {
+            "completion_tokens": 34,
+            "prompt_tokens": 321,
+            "total_tokens": 355,
+            "prompt_tokens_details": {
+              "cached_tokens": 7
+            }
+          },
+          "timings": {
+            "cache_n": 7,
+            "prompt_n": 314,
+            "prompt_ms": 377.381,
+            "prompt_per_token_ms": 1.2018503184713374,
+            "prompt_per_second": 832.0503681955372,
+            "predicted_n": 34,
+            "predicted_ms": 136.774,
+            "predicted_per_token_ms": 4.144666666666667,
+            "predicted_per_second": 241.27392633102784
+          },
+          "point_inside_expected_box": false
+        },
+        {
+          "id": "synthetic-green-F",
+          "seconds": 0.52,
+          "raw": "{\n  \"target\": \"F\",\n  \"center_px\": [\n   959,\n   479\n  ],\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 35,
+            "prompt_tokens": 334,
+            "total_tokens": 369,
+            "prompt_tokens_details": {
+              "cached_tokens": 7
+            }
+          },
+          "timings": {
+            "cache_n": 7,
+            "prompt_n": 327,
+            "prompt_ms": 353.087,
+            "prompt_per_token_ms": 1.079776758409786,
+            "prompt_per_second": 926.1173591777665,
+            "predicted_n": 35,
+            "predicted_ms": 146.197,
+            "predicted_per_token_ms": 4.299911764705882,
+            "predicted_per_second": 232.56291168765435
+          },
+          "point_inside_expected_box": false
+        },
+        {
+          "id": "synthetic-blue-cube",
+          "seconds": 0.5,
+          "raw": "{ \"target\": \"object name\", \"center_px\": [959, 479],\"uncertain\":false}",
+          "usage": {
+            "completion_tokens": 33,
+            "prompt_tokens": 321,
+            "total_tokens": 354,
+            "prompt_tokens_details": {
+              "cached_tokens": 118
+            }
+          },
+          "timings": {
+            "cache_n": 118,
+            "prompt_n": 203,
+            "prompt_ms": 345.618,
+            "prompt_per_token_ms": 1.702551724137931,
+            "prompt_per_second": 587.3536679223882,
+            "predicted_n": 33,
+            "predicted_ms": 135.564,
+            "predicted_per_token_ms": 4.236375,
+            "predicted_per_second": 236.05086896226138
+          },
+          "point_inside_expected_box": false
+        }
+      ],
+      "command": [
+        "/opt/homebrew/bin/llama-server",
+        "-m",
+        "/Users/jasonlei/.cache/autovisor-models/smolvlm-256m/model.gguf",
+        "--mmproj",
+        "/Users/jasonlei/.cache/autovisor-models/smolvlm-256m/mmproj.gguf",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "-c",
+        "4096",
+        "--parallel",
+        "1",
+        "-t",
+        "4",
+        "--alias",
+        "local-vision",
+        "--verbosity",
+        "4",
+        "--device",
+        "MTL0",
+        "-ngl",
+        "99"
+      ],
+      "load_seconds": 0.52,
+      "status": "completed",
+      "peak_rss_mb": 522.5,
+      "memory_breakdown_lines": [
+        "0.00.148.255 I common_memory_breakdown_print: | memory breakdown [MiB] | total    free    self   model   context   compute    unaccounted |",
+        "0.00.148.257 I common_memory_breakdown_print: |   - MTL0 (Apple M4)    | 10922 = 10922 + ( 241 =   136 +      90 +      15) +        -241 |",
+        "0.00.148.258 I common_memory_breakdown_print: |   - Host               |                    41 =    28 +       0 +      12                |",
+        "0.03.211.682 I common_memory_breakdown_print: | memory breakdown [MiB] | total    free    self   model   context   compute    unaccounted |",
+        "0.03.211.683 I common_memory_breakdown_print: |   - MTL0 (Apple M4)    | 10922 = 10451 + ( 270 =   165 +      90 +      15) +         200 |",
+        "0.03.211.683 I common_memory_breakdown_print: |   - Host               |                    35 =    28 +       0 +       6                |"
+      ]
+    },
+    {
+      "backend": "cuda",
+      "cases": [],
+      "status": "unavailable",
+      "error": "No cuda device: install a llama.cpp build with that backend"
+    }
+  ]
+}

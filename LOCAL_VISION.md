@@ -80,3 +80,29 @@ are stopped when each run completes.
 
 Sources: [llama.cpp multimodal](https://github.com/ggml-org/llama.cpp/blob/master/docs/multimodal.md),
 [CPU/Metal/CUDA builds](https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md).
+
+## Prompt tuning and smaller artifacts
+
+The expanded ten-case development experiment is in
+`reports/prompt-tuning/SUMMARY.md`. It retains unsuccessful variants instead of
+reporting only a lucky repeat. `--prompt grounded` adds an OpenCV candidate-ID
+stage; this is a combined algorithm, not a prompt-only improvement.
+
+```bash
+uv sync --locked --extra captcha
+uv run python scripts/benchmark_local_vision.py \
+  --model-dir /Users/jasonlei/.cache/autovisor-models/qwen25vl-3b-vision-q8 \
+  --name q4-visionq8-grounded-ten --backends metal cpu \
+  --prompt grounded --output reports/prompt-tuning/q4-visionq8-grounded-ten.json
+```
+
+Experimental local config accepts `localPrompt=grounded` and `imageScale=1|2|3|4`.
+The default config without these options keeps the existing point-output behavior.
+Grounded mode requires OpenCV and NumPy (`--extra captcha` installs both) and falls
+back to manual waiting for invalid or uncertain selections.
+
+With `localPrompt=grounded`, `run_macos.sh` also installs those dependencies even
+when login slider automation is disabled. `largeLabels=True` enlarges candidate
+markers and gave the best ten-case Metal result in this experiment. The CPU fast
+trial uses `imageScale=1` and `largeLabels=False`; it is faster but less accurate.
+Neither configuration has demonstrated a reliable 80% real-platform pass rate.

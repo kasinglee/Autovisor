@@ -1,0 +1,233 @@
+{
+  "model": "q4-candidates-scale3",
+  "devices": "Available devices:\n  BLAS: Accelerate (0 MiB, 0 MiB free)\n  MTL0: Apple M4 (10922 MiB, 10922 MiB free)\n",
+  "memory_limit_gb": 8,
+  "prompt": "candidates",
+  "image_scale": 3,
+  "split": "calibration",
+  "repeats": 1,
+  "method": "Annotated real and synthetic screenshots; supplied English instruction; JSON constrained decoding; absolute image-pixel output checked against normalized target boxes. Not live platform pass rate. RSS excludes some Metal allocations.",
+  "runs": [
+    {
+      "backend": "metal",
+      "cases": [
+        {
+          "id": "blue-cube",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 8.29,
+          "raw": "{\n  \"reference_attribute\": \"front_face_color\",\n  \"candidates\": [\n    {\n      \"character\": \"b\",\n      \"color\": \"yellow\",\n      \"facing\": \"side\",\n      \"center_px\": [100, 190]\n    },\n    {\n      \"character\": \"H\",\n      \"color\": \"yellow\",\n      \"facing\": \"side\",\n      \"center_px\": [100, 300]\n    },\n    {\n      \"character\": \"M\",\n      \"color\": \"yellow\",\n      \"facing\": \"side\",\n      \"center_px\": [100, 390]\n    },\n    {\n      \"character\": \"2\",\n      \"color\": \"gray\",\n      \"facing\": \"side\",\n      \"center_px\": [380, 100]\n    },\n    {\n      \"character\": \"b\",\n      \"color\": \"blue\",\n      \"facing\": \"side\",\n      \"center_px\": [740, 170]\n    }\n  ],\n  \"selected_index\": 4,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 244,
+            "prompt_tokens": 782,
+            "total_tokens": 1026,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 782,
+            "prompt_ms": 2941.695,
+            "prompt_per_token_ms": 3.7617583120204605,
+            "prompt_per_second": 265.833133618543,
+            "predicted_n": 244,
+            "predicted_ms": 5326.65,
+            "predicted_per_token_ms": 21.920370370370367,
+            "predicted_per_second": 45.61966714539157
+          },
+          "point_inside_expected_box": false,
+          "derived_center": [
+            740,
+            170
+          ]
+        },
+        {
+          "id": "number-orientation",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 5.61,
+          "raw": "{\n  \"reference_attribute\": \"front-facing\",\n  \"candidates\": [\n    {\n      \"character\": \"1\",\n      \"color\": \"gray\",\n      \"facing\": \"front-facing\",\n      \"center_px\": [259, 140]\n    },\n    {\n      \"character\": \"1\",\n      \"color\": \"gray\",\n      \"facing\": \"front-facing\",\n      \"center_px\": [512, 300]\n    }\n  ],\n  \"selected_index\": 0,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 122,
+            "prompt_tokens": 799,
+            "total_tokens": 921,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 781,
+            "prompt_ms": 2937.752,
+            "prompt_per_token_ms": 3.7615262483994876,
+            "prompt_per_second": 265.8495339293446,
+            "predicted_n": 122,
+            "predicted_ms": 2649.303,
+            "predicted_per_token_ms": 21.895066115702477,
+            "predicted_per_second": 45.672390058819246
+          },
+          "point_inside_expected_box": false,
+          "derived_center": [
+            259,
+            140
+          ]
+        },
+        {
+          "id": "sideways-S",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 4.67,
+          "raw": "{\n  \"reference_attribute\": \"side-facing\",\n  \"candidates\": [\n    {\n      \"character\": \"S\",\n      \"color\": \"red\",\n      \"facing\": \"side-facing\",\n      \"center_px\": [400, 240]\n    }\n  ],\n  \"selected_index\": 0,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 80,
+            "prompt_tokens": 785,
+            "total_tokens": 865,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 767,
+            "prompt_ms": 2883.0,
+            "prompt_per_token_ms": 3.758800521512386,
+            "prompt_per_second": 266.04231703087066,
+            "predicted_n": 80,
+            "predicted_ms": 1763.536,
+            "predicted_per_token_ms": 22.323240506329114,
+            "predicted_per_second": 44.79636366935521
+          },
+          "point_inside_expected_box": false,
+          "derived_center": [
+            400,
+            240
+          ]
+        },
+        {
+          "id": "synthetic-green-F",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 5.54,
+          "raw": "{\n  \"reference_attribute\": \"front_face_color\",\n  \"candidates\": [\n    {\n      \"character\": \"F\",\n      \"color\": \"blue\",\n      \"facing\": \"front\",\n      \"center_px\": [105, 210]\n    },\n    {\n      \"character\": \"F\",\n      \"color\": \"green\",\n      \"facing\": \"front\",\n      \"center_px\": [180, 300]\n    }\n  ],\n  \"selected_index\": 0,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 121,
+            "prompt_tokens": 793,
+            "total_tokens": 914,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 775,
+            "prompt_ms": 2884.517,
+            "prompt_per_token_ms": 3.7219574193548386,
+            "prompt_per_second": 268.6758303036523,
+            "predicted_n": 121,
+            "predicted_ms": 2640.409,
+            "predicted_per_token_ms": 22.003408333333333,
+            "predicted_per_second": 45.4475045343354
+          },
+          "point_inside_expected_box": false,
+          "derived_center": [
+            105,
+            210
+          ]
+        },
+        {
+          "id": "synthetic-blue-cube",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 4.64,
+          "raw": "{\n  \"reference_attribute\": \"front_face_color\",\n  \"candidates\": [\n    {\n      \"character\": \"C\",\n      \"color\": \"blue\",\n      \"facing\": \"front\",\n      \"center_px\": [720, 294]\n    }\n  ],\n  \"selected_index\": 0,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 80,
+            "prompt_tokens": 782,
+            "total_tokens": 862,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 764,
+            "prompt_ms": 2880.047,
+            "prompt_per_token_ms": 3.7696950261780104,
+            "prompt_per_second": 265.2734486624697,
+            "predicted_n": 80,
+            "predicted_ms": 1740.555,
+            "predicted_per_token_ms": 22.0323417721519,
+            "predicted_per_second": 45.38782170054953
+          },
+          "point_inside_expected_box": true,
+          "derived_center": [
+            720,
+            294
+          ]
+        }
+      ],
+      "command": [
+        "/opt/homebrew/bin/llama-server",
+        "-m",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b/model.gguf",
+        "--mmproj",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b/mmproj.gguf",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "-c",
+        "4096",
+        "--parallel",
+        "1",
+        "-t",
+        "4",
+        "--alias",
+        "local-vision",
+        "--verbosity",
+        "4",
+        "--device",
+        "MTL0",
+        "-ngl",
+        "99"
+      ],
+      "load_seconds": 2.09,
+      "status": "completed",
+      "peak_rss_mb": 1882.8,
+      "memory_breakdown_lines": [
+        "0.00.293.908 I common_memory_breakdown_print: | memory breakdown [MiB] | total    free    self   model   context   compute    unaccounted |",
+        "0.00.293.910 I common_memory_breakdown_print: |   - MTL0 (Apple M4)    | 10922 = 10922 + (2055 =  1834 +     144 +      76) +       -2054 |",
+        "0.00.293.910 I common_memory_breakdown_print: |   - Host               |                   267 =   243 +       0 +      24                |",
+        "0.30.881.847 I common_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   model   context   compute    unaccounted |",
+        "0.30.881.849 I common_memory_breakdown_print: |   - MTL0 (Apple M4)    | 10922 = 6737 + (2055 =  1834 +     144 +      76) +        2129 |",
+        "0.30.881.849 I common_memory_breakdown_print: |   - Host               |                  255 =   243 +       0 +      12                |"
+      ]
+    }
+  ]
+}

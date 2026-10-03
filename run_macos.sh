@@ -115,6 +115,9 @@ deploy() {
     case "$captcha" in
         true|1|yes|on) extra="--extra captcha" ;;
     esac
+    if [ "$(ini_value "$cfg" localPrompt | tr '[:upper:]' '[:lower:]')" = "grounded" ]; then
+        extra="--extra captcha"
+    fi
     echo "[setup] 安装 Python 依赖 (uv sync $extra)..."
     uv sync $extra
 
@@ -133,12 +136,12 @@ deploy() {
 signature() {
     {
         if [ -f pyproject.toml ]; then
-            shasum -a 256 pyproject.toml uv.lock 2>/dev/null | awk '{print $1}'
+            LC_ALL=C shasum -a 256 pyproject.toml uv.lock 2>/dev/null | awk '{print $1}'
         fi
         if [ -f "$config_file" ]; then
-            shasum -a 256 "$config_file" 2>/dev/null | awk '{print $1}'
+            LC_ALL=C shasum -a 256 "$config_file" 2>/dev/null | awk '{print $1}'
         fi
-    } | shasum -a 256 | awk '{print $1}'
+    } | LC_ALL=C shasum -a 256 | awk '{print $1}'
 }
 
 if [ "$force_setup" = true ]; then

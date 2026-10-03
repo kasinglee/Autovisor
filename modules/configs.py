@@ -29,6 +29,11 @@ class Config:
             self.enableVisionCaptcha = self.get_bool_field('script-option', 'enableVisionCaptcha', fallback=False)
             self.vision_provider = self._config.get('vision-option', 'provider', fallback='deepseek').strip().lower()
             self.vision_local_url = self._config.get('vision-option', 'localUrl', fallback='http://127.0.0.1:8091').strip()
+            self.vision_local_prompt = self._config.get('vision-option', 'localPrompt', fallback='baseline').strip()
+            self.vision_large_labels = self.get_bool_field('vision-option', 'largeLabels', fallback=False)
+            self.vision_image_scale = self._config.getint('vision-option', 'imageScale', fallback=3)
+            if self.vision_image_scale not in (1,2,3,4):
+                raise ConfigError('imageScale 必须为 1、2、3 或 4')
             self.enableHideWindow = self.get_bool_field('script-option', 'enableHideWindow')
             self.showDonateCode = self.get_bool_field("script-option", "showDonateCode")
             # 课程选项

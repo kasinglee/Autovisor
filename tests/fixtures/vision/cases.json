@@ -15,7 +15,8 @@
       380,
       890,
       650
-    ]
+    ],
+    "split": "calibration"
   },
   {
     "id": "number-orientation",
@@ -33,7 +34,8 @@
       530,
       630,
       840
-    ]
+    ],
+    "split": "calibration"
   },
   {
     "id": "sideways-S",
@@ -51,7 +53,8 @@
       490,
       735,
       830
-    ]
+    ],
+    "split": "calibration"
   },
   {
     "id": "synthetic-green-F",
@@ -70,7 +73,8 @@
       300,
       930
     ],
-    "synthetic": true
+    "synthetic": true,
+    "split": "calibration"
   },
   {
     "id": "synthetic-blue-cube",
@@ -89,6 +93,106 @@
       822,
       882
     ],
-    "synthetic": true
+    "synthetic": true,
+    "split": "calibration"
+  },
+  {
+    "id": "synthetic-red-P",
+    "file": "synthetic-red-P.png",
+    "crop": [
+      16,
+      67,
+      336,
+      227
+    ],
+    "instruction_en": "Click uppercase P with the same color as uppercase R",
+    "instruction_zh": "请点击大写R颜色一样的大写P",
+    "expected_box_1000": [
+      690,
+      550,
+      850,
+      930
+    ],
+    "synthetic": true,
+    "split": "holdout"
+  },
+  {
+    "id": "synthetic-lowercase-k",
+    "file": "synthetic-lowercase-k.png",
+    "crop": [
+      16,
+      67,
+      336,
+      227
+    ],
+    "instruction_en": "Click the lowercase k",
+    "instruction_zh": "请点击小写k",
+    "expected_box_1000": [
+      400,
+      570,
+      560,
+      930
+    ],
+    "synthetic": true,
+    "split": "holdout"
+  },
+  {
+    "id": "synthetic-yellow-square",
+    "file": "synthetic-yellow-square.png",
+    "crop": [
+      16,
+      67,
+      336,
+      227
+    ],
+    "instruction_en": "Click the yellow square",
+    "instruction_zh": "请点击黄色正方形",
+    "expected_box_1000": [
+      78,
+      475,
+      260,
+      838
+    ],
+    "synthetic": true,
+    "split": "holdout"
+  },
+  {
+    "id": "synthetic-purple-8",
+    "file": "synthetic-purple-8.png",
+    "crop": [
+      16,
+      67,
+      336,
+      227
+    ],
+    "instruction_en": "Click digit 8 with the same color as uppercase H",
+    "instruction_zh": "请点击大写H颜色一样的数字8",
+    "expected_box_1000": [
+      660,
+      150,
+      825,
+      560
+    ],
+    "synthetic": true,
+    "split": "holdout"
+  },
+  {
+    "id": "real-green-F",
+    "file": "real-green-F.png",
+    "crop": [
+      20,
+      84,
+      420,
+      284
+    ],
+    "instruction_en": "Click uppercase F with the same color as uppercase S",
+    "instruction_zh": "请点击大写S颜色一样的大写F",
+    "expected_box_1000": [
+      140,
+      580,
+      270,
+      910
+    ],
+    "split": "holdout"
   }
 ]

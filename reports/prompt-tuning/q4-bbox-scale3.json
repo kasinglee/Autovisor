@@ -1,0 +1,233 @@
+{
+  "model": "q4-bbox-scale3",
+  "devices": "Available devices:\n  BLAS: Accelerate (0 MiB, 0 MiB free)\n  MTL0: Apple M4 (10922 MiB, 10922 MiB free)\n",
+  "memory_limit_gb": 8,
+  "prompt": "bbox",
+  "image_scale": 3,
+  "split": "calibration",
+  "repeats": 1,
+  "method": "Annotated real and synthetic screenshots; supplied English instruction; JSON constrained decoding; absolute image-pixel output checked against normalized target boxes. Not live platform pass rate. RSS excludes some Metal allocations.",
+  "runs": [
+    {
+      "backend": "metal",
+      "cases": [
+        {
+          "id": "blue-cube",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 4.32,
+          "raw": "{\n  \"observations\": \"The blue cube is the target.\",\n  \"target\": \"blue cube\",\n  \"uncertain\": false,\n  \"bbox_2d\": [742, 173, 849, 309]\n}",
+          "usage": {
+            "completion_tokens": 62,
+            "prompt_tokens": 762,
+            "total_tokens": 824,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 762,
+            "prompt_ms": 2887.089,
+            "prompt_per_token_ms": 3.7888307086614175,
+            "prompt_per_second": 263.9336715979314,
+            "predicted_n": 62,
+            "predicted_ms": 1410.497,
+            "predicted_per_token_ms": 23.122901639344263,
+            "predicted_per_second": 43.24716748777204
+          },
+          "point_inside_expected_box": true,
+          "derived_center": [
+            795.5,
+            241.0
+          ]
+        },
+        {
+          "id": "number-orientation",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 4.52,
+          "raw": "{\n  \"observations\": \"The number 1 in the image is facing the same direction as the uppercase B.\",\n  \"target\": \"number 1\",\n  \"uncertain\": false,\n  \"bbox_2d\": [259, 139, 342, 276]\n}",
+          "usage": {
+            "completion_tokens": 73,
+            "prompt_tokens": 779,
+            "total_tokens": 852,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 761,
+            "prompt_ms": 2881.481,
+            "prompt_per_token_ms": 3.7864402102496717,
+            "prompt_per_second": 264.1003011992791,
+            "predicted_n": 73,
+            "predicted_ms": 1616.065,
+            "predicted_per_token_ms": 22.445347222222225,
+            "predicted_per_second": 44.55266341390971
+          },
+          "point_inside_expected_box": false,
+          "derived_center": [
+            300.5,
+            207.5
+          ]
+        },
+        {
+          "id": "sideways-S",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 4.4,
+          "raw": "{\n  \"observations\": \"The target letter 'S' is located in the center of the image.\",\n  \"target\": \"S\",\n  \"uncertain\": false,\n  \"bbox_2d\": [357, 270, 472, 407]\n}",
+          "usage": {
+            "completion_tokens": 69,
+            "prompt_tokens": 765,
+            "total_tokens": 834,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 747,
+            "prompt_ms": 2875.225,
+            "prompt_per_token_ms": 3.8490294511378846,
+            "prompt_per_second": 259.80575433226966,
+            "predicted_n": 69,
+            "predicted_ms": 1507.711,
+            "predicted_per_token_ms": 22.172220588235295,
+            "predicted_per_second": 45.10148164999791
+          },
+          "point_inside_expected_box": false,
+          "derived_center": [
+            414.5,
+            338.5
+          ]
+        },
+        {
+          "id": "synthetic-green-F",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 4.7,
+          "raw": "{\n  \"observations\": \"The letter 'F' with the same color as 'S' is the target.\",\n  \"target\": \"The letter 'F' with the same color as 'S'\",\n  \"uncertain\": false,\n  \"bbox_2d\": [102, 102, 202, 236]\n}",
+          "usage": {
+            "completion_tokens": 82,
+            "prompt_tokens": 773,
+            "total_tokens": 855,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 755,
+            "prompt_ms": 2879.056,
+            "prompt_per_token_ms": 3.813319205298013,
+            "prompt_per_second": 262.2387338071924,
+            "predicted_n": 82,
+            "predicted_ms": 1807.802,
+            "predicted_per_token_ms": 22.31854320987654,
+            "predicted_per_second": 44.80579178471979
+          },
+          "point_inside_expected_box": false,
+          "derived_center": [
+            152.0,
+            169.0
+          ]
+        },
+        {
+          "id": "synthetic-blue-cube",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 4.17,
+          "raw": "{\n  \"observations\": \"Click the blue cube.\",\n  \"target\": \"blue cube\",\n  \"uncertain\": false,\n  \"bbox_2d\": [700, 280, 896, 420]\n}",
+          "usage": {
+            "completion_tokens": 60,
+            "prompt_tokens": 762,
+            "total_tokens": 822,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 744,
+            "prompt_ms": 2823.288,
+            "prompt_per_token_ms": 3.794741935483871,
+            "prompt_per_second": 263.52253117641555,
+            "predicted_n": 60,
+            "predicted_ms": 1337.818,
+            "predicted_per_token_ms": 22.674881355932204,
+            "predicted_per_second": 44.10166405295788
+          },
+          "point_inside_expected_box": false,
+          "derived_center": [
+            798.0,
+            350.0
+          ]
+        }
+      ],
+      "command": [
+        "/opt/homebrew/bin/llama-server",
+        "-m",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b/model.gguf",
+        "--mmproj",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b/mmproj.gguf",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "-c",
+        "4096",
+        "--parallel",
+        "1",
+        "-t",
+        "4",
+        "--alias",
+        "local-vision",
+        "--verbosity",
+        "4",
+        "--device",
+        "MTL0",
+        "-ngl",
+        "99"
+      ],
+      "load_seconds": 3.11,
+      "status": "completed",
+      "peak_rss_mb": 1859.7,
+      "memory_breakdown_lines": [
+        "0.00.309.027 I common_memory_breakdown_print: | memory breakdown [MiB] | total    free    self   model   context   compute    unaccounted |",
+        "0.00.309.029 I common_memory_breakdown_print: |   - MTL0 (Apple M4)    | 10922 = 10922 + (2055 =  1834 +     144 +      76) +       -2054 |",
+        "0.00.309.029 I common_memory_breakdown_print: |   - Host               |                   267 =   243 +       0 +      24                |",
+        "0.25.272.019 I common_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   model   context   compute    unaccounted |",
+        "0.25.272.021 I common_memory_breakdown_print: |   - MTL0 (Apple M4)    | 10922 = 6737 + (2055 =  1834 +     144 +      76) +        2129 |",
+        "0.25.272.021 I common_memory_breakdown_print: |   - Host               |                  255 =   243 +       0 +      12                |"
+      ]
+    }
+  ]
+}

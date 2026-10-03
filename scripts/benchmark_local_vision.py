@@ -16,7 +16,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from modules.local_vision import decode_json, point_response_format, server_command
+from modules.local_vision import decode_json, point_response_format, server_command, vision_prompt
 
 
 def rss_mb(pid):
@@ -31,6 +31,11 @@ def main():
     parser.add_argument("--backends", nargs="+", default=["cpu", "metal"])
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--memory-limit-gb", type=float, default=8)
+    parser.add_argument("--prompt", choices=["baseline", "compare", "bbox", "candidates", "grounded", "grounded-explicit", "grounded-short"], default="baseline")
+    parser.add_argument("--image-scale", type=int, choices=[1, 2, 3, 4], default=3)
+    parser.add_argument("--split", choices=["all", "calibration", "holdout"], default="all")
+    parser.add_argument("--repeats", type=int, default=1)
+    parser.add_argument("--large-labels", action="store_true")
     args = parser.parse_args()
     binary = shutil.which("llama-server")
     if not binary:
@@ -39,7 +44,11 @@ def main():
     device_text = devices.stdout + devices.stderr
     args.output.parent.mkdir(parents=True, exist_ok=True)
     cases = json.loads((ROOT / "tests/fixtures/vision/cases.json").read_text())
+    cases = [case for case in cases if args.split == "all" or case.get("split") == args.split]
+    if not cases or args.repeats < 1:
+        parser.error("Empty case set or invalid repeat count")
     report = {"model": args.name, "devices": device_text, "memory_limit_gb": args.memory_limit_gb,
+              "prompt": args.prompt, "image_scale": args.image_scale, "split": args.split, "repeats": args.repeats, "large_labels": args.large_labels,
               "method": "Annotated real and synthetic screenshots; supplied English instruction; JSON constrained decoding; absolute image-pixel output checked against normalized target boxes. Not live platform pass rate. RSS excludes some Metal allocations.",
               "runs": []}
     for backend in args.backends:
@@ -87,24 +96,53 @@ def main():
                     sampler = threading.Thread(target=sample, daemon=True)
                     sampler.start()
                     try:
-                        for case in cases:
+                        for trial in range(args.repeats * len(cases)):
+                            case = cases[trial % len(cases)]
                             with Image.open(ROOT / "tests/fixtures/vision" / case["file"]) as image:
                                 crop = image.crop(tuple(case["crop"]))
-                                crop = crop.resize((crop.width * 3, crop.height * 3))
+                                crop = crop.resize((crop.width * args.image_scale, crop.height * args.image_scale))
+                                if args.prompt.startswith("grounded"):
+                                    from modules.vision_candidates import extract_candidates, candidate_image, selection_format
+                                    candidates = extract_candidates(crop)
+                                    crop = candidate_image(crop, candidates, args.large_labels)
                                 buffer = io.BytesIO()
                                 crop.save(buffer, format="PNG")
-                            prompt = (
-                                f"Task: {case['instruction_en']}. Chinese original: {case['instruction_zh']}. "
-                                "Find the ONE matching object in this image. Return JSON only: "
-                                '{"target":"object name", "center_px":[x,y],"uncertain":false}. '
-                                f"Image width {crop.width} pixels, height {crop.height} pixels. "
-                                f"x and y are absolute image pixels, origin top left, bottom right [{crop.width-1},{crop.height-1}]. "
-                                "Point inside the target face. If unsure return uncertain true."
-                            )
+                            if args.prompt.startswith("grounded"):
+                                prompt = (
+                                    f"Task: {case['instruction_en']}. Chinese: {case['instruction_zh']}. "
+                                    "Objects are boxed and numbered. Select ONE box ID matching the instruction. "
+                                    "The numbered white tags are annotations, not objects. Candidate colors are measured, not guesses. "
+                                    "For same-color tasks identify the reference character, then choose the TARGET character with matching measured color. "
+                                    "For side-on letters choose the thin/narrow letter with a prominent visible side, not the broad frontal letter. "
+                                    "Do not select the reference object. Return reference_attribute, selected_id, uncertain as JSON. "
+                                    "Candidates: " + json.dumps([{k:v for k,v in c.items() if k != 'center_px'} for c in candidates])
+                                )
+                                if args.prompt == "grounded-explicit":
+                                    prompt += (
+                                        " First output target_character as the exact requested target letter, digit, or shape. "
+                                        "Then reference_id as the reference object's ID, or -1 when there is no reference. "
+                                        "reference_attribute must state the actual color or facing direction, not the word 'color'. "
+                                        "selected_id must refer to the requested target_character and must NOT equal reference_id. "
+                                        "For same-color questions use the measured color of reference_id to filter target candidates."
+                                    )
+                                if args.prompt == "grounded-short":
+                                    prompt = (
+                                        f"Choose ONE numbered object: {case['instruction_en']}. "
+                                        "White number tags and black boxes are annotations, not objects. "
+                                        "Measured candidate colors: " + json.dumps([{k:v for k,v in c.items() if k not in {'bbox','center_px'}} for c in candidates]) +
+                                        ". Select the exact requested character, case, color and shape. "
+                                        "When comparing colors, find the reference character's color and select the TARGET character with that color; never select the reference. "
+                                        "Sideways means a narrow front face and a prominent side face. "
+                                        "Return selected_id and uncertain as JSON only."
+                                    )
+                                response_format = selection_format(args.prompt == "grounded-explicit", args.prompt == "grounded-short")
+                            else:
+                                prompt = vision_prompt(case['instruction_en'] + f" Chinese original: {case['instruction_zh']}", crop.width, crop.height, args.prompt)
+                                response_format = point_response_format(args.prompt != "baseline", args.prompt == "bbox", args.prompt == "candidates")
                             started = time.monotonic()
                             response = client.post("/v1/chat/completions", json={
-                                "model": "local-vision", "temperature": 0, "max_tokens": 160,
-                                "response_format": point_response_format(),
+                                "model": "local-vision", "temperature": 0, "max_tokens": 400 if args.prompt == "candidates" else (256 if args.prompt != "baseline" else 160),
+                                "response_format": response_format,
                                 "messages": [{"role": "user", "content": [
                                     {"type": "text", "text": prompt},
                                     {"type": "image_url", "image_url": {"url": "data:image/png;base64," + base64.b64encode(buffer.getvalue()).decode()}},
@@ -112,12 +150,34 @@ def main():
                             })
                             response.raise_for_status()
                             data = response.json()
-                            result = {"id": case["id"], "seconds": round(time.monotonic()-started, 2),
+                            result = {"id": case["id"], "split": case.get("split"), "synthetic": case.get("synthetic", False), "repeat": trial // len(cases), "image_size": list(crop.size), "seconds": round(time.monotonic()-started, 2),
                                       "raw": data["choices"][0]["message"]["content"], "usage": data.get("usage"),
                                       "timings": data.get("timings"), "point_inside_expected_box": False}
                             try:
                                 answer = decode_json(result["raw"])
-                                x, y = answer["center_px"]
+                                if args.prompt.startswith("grounded"):
+                                    index = answer["selected_id"]
+                                    if type(index) is not int or not (0 <= index < len(candidates)):
+                                        raise ValueError("Unknown candidate ID")
+                                    if args.prompt == "grounded-explicit" and "same" in case["instruction_en"].lower() and index == answer["reference_id"]:
+                                        raise ValueError("Selected reference instead of target")
+                                    x,y = candidates[index]["center_px"]
+                                    result["image_candidates"] = candidates
+                                    result["derived_center"] = [x,y]
+                                elif args.prompt == "candidates":
+                                    index = answer["selected_index"]
+                                    if type(index) is not int or not (0 <= index < len(answer["candidates"])):
+                                        raise ValueError("Invalid candidate index")
+                                    x, y = answer["candidates"][index]["center_px"]
+                                    result["derived_center"] = [x,y]
+                                elif args.prompt == "bbox":
+                                    x0,y0,x1,y1 = answer["bbox_2d"]
+                                    if not (0 <= x0 < x1 <= crop.width and 0 <= y0 < y1 <= crop.height):
+                                        raise ValueError("Invalid bounding box")
+                                    x, y = (x0+x1)/2, (y0+y1)/2
+                                    result["derived_center"] = [x,y]
+                                else:
+                                    x, y = answer["center_px"]
                                 a,b,c,d = case["expected_box_1000"]
                                 result["point_inside_expected_box"] = (answer.get("uncertain") is False and
                                     type(x) in (int,float) and type(y) in (int,float) and
@@ -125,6 +185,7 @@ def main():
                             except (ValueError, TypeError, KeyError):
                                 result["parse_error"] = True
                             run["cases"].append(result)
+                            args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2))
                             print(args.name, backend, case["id"], result["seconds"], result["point_inside_expected_box"], flush=True)
                     finally:
                         stop_sample.set()

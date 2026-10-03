@@ -1,0 +1,213 @@
+{
+  "model": "q4-compare-scale1",
+  "devices": "Available devices:\n  BLAS: Accelerate (0 MiB, 0 MiB free)\n  MTL0: Apple M4 (10922 MiB, 10922 MiB free)\n",
+  "memory_limit_gb": 8,
+  "prompt": "compare",
+  "image_scale": 1,
+  "split": "calibration",
+  "repeats": 1,
+  "method": "Annotated real and synthetic screenshots; supplied English instruction; JSON constrained decoding; absolute image-pixel output checked against normalized target boxes. Not live platform pass rate. RSS excludes some Metal allocations.",
+  "runs": [
+    {
+      "backend": "metal",
+      "cases": [
+        {
+          "id": "blue-cube",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            320,
+            160
+          ],
+          "seconds": 2.23,
+          "raw": "{\n  \"observations\": \"The blue cube is positioned at the top right corner of the image.\",\n  \"target\": \"blue cube\",\n  \"center_px\": [300, 100],\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 57,
+            "prompt_tokens": 298,
+            "total_tokens": 355,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 298,
+            "prompt_ms": 868.087,
+            "prompt_per_token_ms": 2.913043624161074,
+            "prompt_per_second": 343.2835648961452,
+            "predicted_n": 57,
+            "predicted_ms": 1352.804,
+            "predicted_per_token_ms": 24.157214285714286,
+            "predicted_per_second": 41.395501491716466
+          },
+          "point_inside_expected_box": false
+        },
+        {
+          "id": "number-orientation",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            320,
+            160
+          ],
+          "seconds": 2.13,
+          "raw": "{\n  \"observations\": \"数字1的正面朝向与大写B的正面朝向一致。\",\n  \"target\": \"数字1\",\n  \"center_px\": [159, 70],\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 58,
+            "prompt_tokens": 315,
+            "total_tokens": 373,
+            "prompt_tokens_details": {
+              "cached_tokens": 19
+            }
+          },
+          "timings": {
+            "cache_n": 19,
+            "prompt_n": 296,
+            "prompt_ms": 803.795,
+            "prompt_per_token_ms": 2.7155236486486487,
+            "prompt_per_second": 368.25309935991146,
+            "predicted_n": 58,
+            "predicted_ms": 1321.275,
+            "predicted_per_token_ms": 23.18026315789474,
+            "predicted_per_second": 43.14014871998638
+          },
+          "point_inside_expected_box": false
+        },
+        {
+          "id": "sideways-S",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            320,
+            160
+          ],
+          "seconds": 2.21,
+          "raw": "{\n  \"observations\": \"The letter 'S' is displayed with a narrow front face and a prominent side face.\",\n  \"target\": \"S\",\n  \"center_px\": [110, 90],\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 59,
+            "prompt_tokens": 301,
+            "total_tokens": 360,
+            "prompt_tokens_details": {
+              "cached_tokens": 19
+            }
+          },
+          "timings": {
+            "cache_n": 19,
+            "prompt_n": 282,
+            "prompt_ms": 798.238,
+            "prompt_per_token_ms": 2.8306312056737593,
+            "prompt_per_second": 353.27809500424684,
+            "predicted_n": 59,
+            "predicted_ms": 1403.824,
+            "predicted_per_token_ms": 24.203862068965517,
+            "predicted_per_second": 41.315720489178126
+          },
+          "point_inside_expected_box": false
+        },
+        {
+          "id": "synthetic-green-F",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            320,
+            160
+          ],
+          "seconds": 2.51,
+          "raw": "{\n  \"observations\": \"The uppercase F has a narrow front face and a prominent side face.\",\n  \"target\": \"F\",\n  \"center_px\": [100, 70],\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 55,
+            "prompt_tokens": 309,
+            "total_tokens": 364,
+            "prompt_tokens_details": {
+              "cached_tokens": 19
+            }
+          },
+          "timings": {
+            "cache_n": 19,
+            "prompt_n": 290,
+            "prompt_ms": 916.127,
+            "prompt_per_token_ms": 3.159058620689655,
+            "prompt_per_second": 316.5499979806293,
+            "predicted_n": 55,
+            "predicted_ms": 1577.297,
+            "predicted_per_token_ms": 29.209203703703704,
+            "predicted_per_second": 34.23578438302995
+          },
+          "point_inside_expected_box": false
+        },
+        {
+          "id": "synthetic-blue-cube",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            320,
+            160
+          ],
+          "seconds": 1.98,
+          "raw": "{\n  \"observations\": \"The blue cube is positioned to the right of the green square.\",\n  \"target\": \"blue cube\",\n  \"center_px\": [220, 80],\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 55,
+            "prompt_tokens": 298,
+            "total_tokens": 353,
+            "prompt_tokens_details": {
+              "cached_tokens": 226
+            }
+          },
+          "timings": {
+            "cache_n": 226,
+            "prompt_n": 72,
+            "prompt_ms": 461.536,
+            "prompt_per_token_ms": 6.410222222222222,
+            "prompt_per_second": 156.00083200443737,
+            "predicted_n": 55,
+            "predicted_ms": 1496.633,
+            "predicted_per_token_ms": 27.715425925925928,
+            "predicted_per_second": 36.08098979509338
+          },
+          "point_inside_expected_box": false
+        }
+      ],
+      "command": [
+        "/opt/homebrew/bin/llama-server",
+        "-m",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b/model.gguf",
+        "--mmproj",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b/mmproj.gguf",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "-c",
+        "4096",
+        "--parallel",
+        "1",
+        "-t",
+        "4",
+        "--alias",
+        "local-vision",
+        "--verbosity",
+        "4",
+        "--device",
+        "MTL0",
+        "-ngl",
+        "99"
+      ],
+      "load_seconds": 2.08,
+      "status": "completed",
+      "peak_rss_mb": 1684.1,
+      "memory_breakdown_lines": [
+        "0.00.300.467 I common_memory_breakdown_print: | memory breakdown [MiB] | total    free    self   model   context   compute    unaccounted |",
+        "0.00.300.469 I common_memory_breakdown_print: |   - MTL0 (Apple M4)    | 10922 = 10922 + (2055 =  1834 +     144 +      76) +       -2054 |",
+        "0.00.300.469 I common_memory_breakdown_print: |   - Host               |                   267 =   243 +       0 +      24                |",
+        "0.13.165.606 I common_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   model   context   compute    unaccounted |",
+        "0.13.165.607 I common_memory_breakdown_print: |   - MTL0 (Apple M4)    | 10922 = 6737 + (2055 =  1834 +     144 +      76) +        2129 |",
+        "0.13.165.608 I common_memory_breakdown_print: |   - Host               |                  255 =   243 +       0 +      12                |"
+      ]
+    }
+  ]
+}

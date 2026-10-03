@@ -1,0 +1,2088 @@
+{
+  "model": "q4-visionq8-grounded-ten",
+  "devices": "Available devices:\n  BLAS: Accelerate (0 MiB, 0 MiB free)\n  MTL0: Apple M4 (10922 MiB, 10922 MiB free)\n",
+  "memory_limit_gb": 8,
+  "prompt": "grounded",
+  "image_scale": 3,
+  "split": "all",
+  "repeats": 1,
+  "method": "Annotated real and synthetic screenshots; supplied English instruction; JSON constrained decoding; absolute image-pixel output checked against normalized target boxes. Not live platform pass rate. RSS excludes some Metal allocations.",
+  "runs": [
+    {
+      "backend": "metal",
+      "cases": [
+        {
+          "id": "blue-cube",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 3.99,
+          "raw": "{\n  \"reference_attribute\": \"blue\",\n  \"selected_id\": 4,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 981,
+            "total_tokens": 1011,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 981,
+            "prompt_ms": 3342.344,
+            "prompt_per_token_ms": 3.407078491335372,
+            "prompt_per_second": 293.5065929778623,
+            "predicted_n": 30,
+            "predicted_ms": 630.146,
+            "predicted_per_token_ms": 21.7291724137931,
+            "predicted_per_second": 46.02108082888728
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                247,
+                28,
+                336,
+                156
+              ],
+              "center_px": [
+                317,
+                131
+              ],
+              "color": "gray",
+              "id": 0
+            },
+            {
+              "bbox": [
+                264,
+                52,
+                293,
+                91
+              ],
+              "center_px": [
+                276,
+                70
+              ],
+              "color": "gray",
+              "id": 1
+            },
+            {
+              "bbox": [
+                387,
+                96,
+                492,
+                227
+              ],
+              "center_px": [
+                428,
+                198
+              ],
+              "color": "gray",
+              "id": 2
+            },
+            {
+              "bbox": [
+                90,
+                142,
+                175,
+                275
+              ],
+              "center_px": [
+                106,
+                191
+              ],
+              "color": "yellow",
+              "id": 3
+            },
+            {
+              "bbox": [
+                750,
+                177,
+                856,
+                310
+              ],
+              "center_px": [
+                802,
+                229
+              ],
+              "color": "blue",
+              "id": 4
+            },
+            {
+              "bbox": [
+                559,
+                243,
+                665,
+                374
+              ],
+              "center_px": [
+                611,
+                295
+              ],
+              "color": "green",
+              "id": 5
+            },
+            {
+              "bbox": [
+                86,
+                288,
+                214,
+                424
+              ],
+              "center_px": [
+                184,
+                353
+              ],
+              "color": "yellow",
+              "id": 6
+            },
+            {
+              "bbox": [
+                266,
+                293,
+                371,
+                426
+              ],
+              "center_px": [
+                322,
+                361
+              ],
+              "color": "orange",
+              "id": 7
+            }
+          ],
+          "derived_center": [
+            802,
+            229
+          ]
+        },
+        {
+          "id": "number-orientation",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 3.88,
+          "raw": "{\n  \"reference_attribute\": \"朝向一样的数字1\",\n  \"selected_id\": 3,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 34,
+            "prompt_tokens": 897,
+            "total_tokens": 931,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 879,
+            "prompt_ms": 3140.926,
+            "prompt_per_token_ms": 3.5732946530147895,
+            "prompt_per_second": 279.85377560630207,
+            "predicted_n": 34,
+            "predicted_ms": 723.452,
+            "predicted_per_token_ms": 21.92278787878788,
+            "predicted_per_second": 45.614636492815
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                186,
+                31,
+                285,
+                158
+              ],
+              "center_px": [
+                266,
+                53
+              ],
+              "color": "gray",
+              "id": 0
+            },
+            {
+              "bbox": [
+                390,
+                90,
+                459,
+                219
+              ],
+              "center_px": [
+                408,
+                135
+              ],
+              "color": "blue",
+              "id": 1
+            },
+            {
+              "bbox": [
+                263,
+                144,
+                337,
+                275
+              ],
+              "center_px": [
+                311,
+                179
+              ],
+              "color": "green",
+              "id": 2
+            },
+            {
+              "bbox": [
+                123,
+                234,
+                217,
+                365
+              ],
+              "center_px": [
+                165,
+                286
+              ],
+              "color": "red",
+              "id": 3
+            },
+            {
+              "bbox": [
+                566,
+                267,
+                590,
+                390
+              ],
+              "center_px": [
+                578,
+                318
+              ],
+              "color": "gray",
+              "id": 4
+            }
+          ],
+          "derived_center": [
+            165,
+            286
+          ]
+        },
+        {
+          "id": "sideways-S",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 3.97,
+          "raw": "{\n  \"reference_attribute\": \"thin/narrow letter with a prominent visible side\",\n  \"selected_id\": 0,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 38,
+            "prompt_tokens": 919,
+            "total_tokens": 957,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 901,
+            "prompt_ms": 3151.037,
+            "prompt_per_token_ms": 3.497266370699223,
+            "prompt_per_second": 285.9376135538872,
+            "predicted_n": 38,
+            "predicted_ms": 798.291,
+            "predicted_per_token_ms": 21.575432432432432,
+            "predicted_per_second": 46.349013079190414
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                276,
+                55,
+                383,
+                181
+              ],
+              "center_px": [
+                326,
+                166
+              ],
+              "color": "red",
+              "id": 0
+            },
+            {
+              "bbox": [
+                133,
+                103,
+                316,
+                348
+              ],
+              "center_px": [
+                284,
+                273
+              ],
+              "color": "red",
+              "id": 1
+            },
+            {
+              "bbox": [
+                697,
+                122,
+                822,
+                218
+              ],
+              "center_px": [
+                760,
+                142
+              ],
+              "color": "gray",
+              "id": 2
+            },
+            {
+              "bbox": [
+                595,
+                249,
+                693,
+                379
+              ],
+              "center_px": [
+                647,
+                336
+              ],
+              "color": "red",
+              "id": 3
+            },
+            {
+              "bbox": [
+                745,
+                264,
+                799,
+                392
+              ],
+              "center_px": [
+                769,
+                300
+              ],
+              "color": "yellow",
+              "id": 4
+            },
+            {
+              "bbox": [
+                361,
+                277,
+                474,
+                407
+              ],
+              "center_px": [
+                433,
+                339
+              ],
+              "color": "red",
+              "id": 5
+            }
+          ],
+          "derived_center": [
+            326,
+            166
+          ]
+        },
+        {
+          "id": "synthetic-green-F",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 3.67,
+          "raw": "{\n  \"reference_attribute\": \"color\",\n  \"selected_id\": 3,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 858,
+            "total_tokens": 888,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 840,
+            "prompt_ms": 3033.264,
+            "prompt_per_token_ms": 3.6110285714285717,
+            "prompt_per_second": 276.92940673808806,
+            "predicted_n": 30,
+            "predicted_ms": 623.492,
+            "predicted_per_token_ms": 21.499724137931032,
+            "predicted_per_second": 46.5122246957459
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                108,
+                102,
+                199,
+                234
+              ],
+              "center_px": [
+                125,
+                167
+              ],
+              "color": "cyan",
+              "id": 0
+            },
+            {
+              "bbox": [
+                384,
+                107,
+                490,
+                243
+              ],
+              "center_px": [
+                406,
+                156
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                687,
+                300,
+                792,
+                432
+              ],
+              "center_px": [
+                738,
+                317
+              ],
+              "color": "orange",
+              "id": 2
+            },
+            {
+              "bbox": [
+                174,
+                301,
+                265,
+                432
+              ],
+              "center_px": [
+                191,
+                365
+              ],
+              "color": "green",
+              "id": 3
+            }
+          ],
+          "derived_center": [
+            191,
+            365
+          ]
+        },
+        {
+          "id": "synthetic-blue-cube",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 3.61,
+          "raw": "{\n  \"reference_attribute\": \"blue\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 810,
+            "total_tokens": 840,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 792,
+            "prompt_ms": 2970.616,
+            "prompt_per_token_ms": 3.7507777777777775,
+            "prompt_per_second": 266.6113694937346,
+            "predicted_n": 30,
+            "predicted_ms": 623.896,
+            "predicted_per_token_ms": 21.51365517241379,
+            "predicted_per_second": 46.482105992024316
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                90,
+                90,
+                255,
+                255
+              ],
+              "center_px": [
+                172,
+                172
+              ],
+              "color": "red",
+              "id": 0
+            },
+            {
+              "bbox": [
+                378,
+                117,
+                543,
+                282
+              ],
+              "center_px": [
+                460,
+                199
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                624,
+                257,
+                789,
+                424
+              ],
+              "center_px": [
+                706,
+                340
+              ],
+              "color": "blue",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            706,
+            340
+          ]
+        },
+        {
+          "id": "synthetic-red-P",
+          "split": "holdout",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 3.68,
+          "raw": "{\n  \"reference_attribute\": \"color\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 857,
+            "total_tokens": 887,
+            "prompt_tokens_details": {
+              "cached_tokens": 17
+            }
+          },
+          "timings": {
+            "cache_n": 17,
+            "prompt_n": 840,
+            "prompt_ms": 3034.269,
+            "prompt_per_token_ms": 3.6122249999999996,
+            "prompt_per_second": 276.8376831454298,
+            "predicted_n": 30,
+            "predicted_ms": 627.362,
+            "predicted_per_token_ms": 21.6331724137931,
+            "predicted_per_second": 46.22530532611156
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                390,
+                90,
+                492,
+                222
+              ],
+              "center_px": [
+                407,
+                161
+              ],
+              "color": "blue",
+              "id": 0
+            },
+            {
+              "bbox": [
+                102,
+                108,
+                220,
+                240
+              ],
+              "center_px": [
+                119,
+                174
+              ],
+              "color": "red",
+              "id": 1
+            },
+            {
+              "bbox": [
+                687,
+                294,
+                789,
+                426
+              ],
+              "center_px": [
+                704,
+                365
+              ],
+              "color": "red",
+              "id": 2
+            },
+            {
+              "bbox": [
+                303,
+                316,
+                408,
+                447
+              ],
+              "center_px": [
+                354,
+                332
+              ],
+              "color": "green",
+              "id": 3
+            }
+          ],
+          "derived_center": [
+            704,
+            365
+          ]
+        },
+        {
+          "id": "synthetic-lowercase-k",
+          "split": "holdout",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 3.65,
+          "raw": "{\n  \"reference_attribute\": \"lowercase\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 31,
+            "prompt_tokens": 810,
+            "total_tokens": 841,
+            "prompt_tokens_details": {
+              "cached_tokens": 17
+            }
+          },
+          "timings": {
+            "cache_n": 17,
+            "prompt_n": 793,
+            "prompt_ms": 2973.602,
+            "prompt_per_token_ms": 3.749813366960908,
+            "prompt_per_second": 266.67993900999534,
+            "predicted_n": 31,
+            "predicted_ms": 658.361,
+            "predicted_per_token_ms": 21.945366666666665,
+            "predicted_per_second": 45.56770525593102
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                87,
+                87,
+                206,
+                219
+              ],
+              "center_px": [
+                108,
+                157
+              ],
+              "color": "blue",
+              "id": 0
+            },
+            {
+              "bbox": [
+                708,
+                151,
+                828,
+                282
+              ],
+              "center_px": [
+                767,
+                221
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                413,
+                300,
+                501,
+                432
+              ],
+              "center_px": [
+                432,
+                381
+              ],
+              "color": "red",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            432,
+            381
+          ]
+        },
+        {
+          "id": "synthetic-yellow-square",
+          "split": "holdout",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 3.62,
+          "raw": "{\n  \"reference_attribute\": \"yellow\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 809,
+            "total_tokens": 839,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 791,
+            "prompt_ms": 2976.297,
+            "prompt_per_token_ms": 3.762701643489254,
+            "prompt_per_second": 265.76648768587273,
+            "predicted_n": 30,
+            "predicted_ms": 627.404,
+            "predicted_per_token_ms": 21.634620689655172,
+            "predicted_per_second": 46.222210888040244
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                372,
+                72,
+                546,
+                246
+              ],
+              "center_px": [
+                458,
+                158
+              ],
+              "color": "orange",
+              "id": 0
+            },
+            {
+              "bbox": [
+                660,
+                87,
+                834,
+                261
+              ],
+              "center_px": [
+                746,
+                173
+              ],
+              "color": "cyan",
+              "id": 1
+            },
+            {
+              "bbox": [
+                75,
+                228,
+                249,
+                402
+              ],
+              "center_px": [
+                161,
+                314
+              ],
+              "color": "orange",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            161,
+            314
+          ]
+        },
+        {
+          "id": "synthetic-purple-8",
+          "split": "holdout",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 3.61,
+          "raw": "{\n  \"reference_attribute\": \"color\",\n  \"selected_id\": 0,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 821,
+            "total_tokens": 851,
+            "prompt_tokens_details": {
+              "cached_tokens": 17
+            }
+          },
+          "timings": {
+            "cache_n": 17,
+            "prompt_n": 804,
+            "prompt_ms": 2974.576,
+            "prompt_per_token_ms": 3.699721393034826,
+            "prompt_per_second": 270.29062293247847,
+            "predicted_n": 30,
+            "predicted_ms": 625.043,
+            "predicted_per_token_ms": 21.553206896551725,
+            "predicted_per_second": 46.396807899616505
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                90,
+                94,
+                195,
+                225
+              ],
+              "center_px": [
+                106,
+                156
+              ],
+              "color": "purple",
+              "id": 0
+            },
+            {
+              "bbox": [
+                663,
+                127,
+                750,
+                260
+              ],
+              "center_px": [
+                736,
+                219
+              ],
+              "color": "purple",
+              "id": 1
+            },
+            {
+              "bbox": [
+                306,
+                303,
+                393,
+                438
+              ],
+              "center_px": [
+                361,
+                364
+              ],
+              "color": "orange",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            106,
+            156
+          ]
+        },
+        {
+          "id": "real-green-F",
+          "split": "holdout",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            1200,
+            600
+          ],
+          "seconds": 5.3,
+          "raw": "{\n  \"reference_attribute\": \"color\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 1217,
+            "total_tokens": 1247,
+            "prompt_tokens_details": {
+              "cached_tokens": 17
+            }
+          },
+          "timings": {
+            "cache_n": 17,
+            "prompt_n": 1200,
+            "prompt_ms": 4649.419,
+            "prompt_per_token_ms": 3.874515833333333,
+            "prompt_per_second": 258.0967643484057,
+            "predicted_n": 30,
+            "predicted_ms": 629.946,
+            "predicted_per_token_ms": 21.722275862068965,
+            "predicted_per_second": 46.03569194819873
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                170,
+                46,
+                278,
+                199
+              ],
+              "center_px": [
+                206,
+                130
+              ],
+              "color": "cyan",
+              "id": 0
+            },
+            {
+              "bbox": [
+                373,
+                118,
+                488,
+                275
+              ],
+              "center_px": [
+                430,
+                224
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                101,
+                197,
+                218,
+                352
+              ],
+              "center_px": [
+                165,
+                240
+              ],
+              "color": "cyan",
+              "id": 2
+            },
+            {
+              "bbox": [
+                673,
+                358,
+                762,
+                518
+              ],
+              "center_px": [
+                728,
+                398
+              ],
+              "color": "green",
+              "id": 3
+            },
+            {
+              "bbox": [
+                182,
+                362,
+                301,
+                522
+              ],
+              "center_px": [
+                212,
+                440
+              ],
+              "color": "green",
+              "id": 4
+            }
+          ],
+          "derived_center": [
+            165,
+            240
+          ]
+        }
+      ],
+      "command": [
+        "/opt/homebrew/bin/llama-server",
+        "-m",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b-vision-q8/model.gguf",
+        "--mmproj",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b-vision-q8/mmproj.gguf",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "-c",
+        "4096",
+        "--parallel",
+        "1",
+        "-t",
+        "4",
+        "--alias",
+        "local-vision",
+        "--verbosity",
+        "4",
+        "--device",
+        "MTL0",
+        "-ngl",
+        "99"
+      ],
+      "load_seconds": 1.58,
+      "status": "completed",
+      "peak_rss_mb": 1667.4,
+      "memory_breakdown_lines": [
+        "0.00.271.932 I common_memory_breakdown_print: | memory breakdown [MiB] | total    free    self   model   context   compute    unaccounted |",
+        "0.00.271.934 I common_memory_breakdown_print: |   - MTL0 (Apple M4)    | 10922 = 10922 + (2055 =  1834 +     144 +      76) +       -2054 |",
+        "0.00.271.935 I common_memory_breakdown_print: |   - Host               |                   267 =   243 +       0 +      24                |",
+        "0.40.941.885 I common_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   model   context   compute    unaccounted |",
+        "0.40.941.887 I common_memory_breakdown_print: |   - MTL0 (Apple M4)    | 10922 = 7208 + (2055 =  1834 +     144 +      76) +        1658 |",
+        "0.40.941.887 I common_memory_breakdown_print: |   - Host               |                  255 =   243 +       0 +      12                |"
+      ]
+    },
+    {
+      "backend": "cpu",
+      "cases": [
+        {
+          "id": "blue-cube",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 39.06,
+          "raw": "{\n  \"reference_attribute\": \"blue\",\n  \"selected_id\": 4,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 981,
+            "total_tokens": 1011,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 981,
+            "prompt_ms": 38021.47,
+            "prompt_per_token_ms": 38.757869520897046,
+            "prompt_per_second": 25.801211789023412,
+            "predicted_n": 30,
+            "predicted_ms": 1016.756,
+            "predicted_per_token_ms": 35.06055172413793,
+            "predicted_per_second": 28.522083961147022
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                247,
+                28,
+                336,
+                156
+              ],
+              "center_px": [
+                317,
+                131
+              ],
+              "color": "gray",
+              "id": 0
+            },
+            {
+              "bbox": [
+                264,
+                52,
+                293,
+                91
+              ],
+              "center_px": [
+                276,
+                70
+              ],
+              "color": "gray",
+              "id": 1
+            },
+            {
+              "bbox": [
+                387,
+                96,
+                492,
+                227
+              ],
+              "center_px": [
+                428,
+                198
+              ],
+              "color": "gray",
+              "id": 2
+            },
+            {
+              "bbox": [
+                90,
+                142,
+                175,
+                275
+              ],
+              "center_px": [
+                106,
+                191
+              ],
+              "color": "yellow",
+              "id": 3
+            },
+            {
+              "bbox": [
+                750,
+                177,
+                856,
+                310
+              ],
+              "center_px": [
+                802,
+                229
+              ],
+              "color": "blue",
+              "id": 4
+            },
+            {
+              "bbox": [
+                559,
+                243,
+                665,
+                374
+              ],
+              "center_px": [
+                611,
+                295
+              ],
+              "color": "green",
+              "id": 5
+            },
+            {
+              "bbox": [
+                86,
+                288,
+                214,
+                424
+              ],
+              "center_px": [
+                184,
+                353
+              ],
+              "color": "yellow",
+              "id": 6
+            },
+            {
+              "bbox": [
+                266,
+                293,
+                371,
+                426
+              ],
+              "center_px": [
+                322,
+                361
+              ],
+              "color": "orange",
+              "id": 7
+            }
+          ],
+          "derived_center": [
+            802,
+            229
+          ]
+        },
+        {
+          "id": "number-orientation",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 36.57,
+          "raw": "{\n  \"reference_attribute\": \"朝向一样的数字1\",\n  \"selected_id\": 3,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 34,
+            "prompt_tokens": 897,
+            "total_tokens": 931,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 879,
+            "prompt_ms": 35398.759,
+            "prompt_per_token_ms": 40.27162571103526,
+            "prompt_per_second": 24.831378975743192,
+            "predicted_n": 34,
+            "predicted_ms": 1151.355,
+            "predicted_per_token_ms": 34.889545454545456,
+            "predicted_per_second": 28.661881001081333
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                186,
+                31,
+                285,
+                158
+              ],
+              "center_px": [
+                266,
+                53
+              ],
+              "color": "gray",
+              "id": 0
+            },
+            {
+              "bbox": [
+                390,
+                90,
+                459,
+                219
+              ],
+              "center_px": [
+                408,
+                135
+              ],
+              "color": "blue",
+              "id": 1
+            },
+            {
+              "bbox": [
+                263,
+                144,
+                337,
+                275
+              ],
+              "center_px": [
+                311,
+                179
+              ],
+              "color": "green",
+              "id": 2
+            },
+            {
+              "bbox": [
+                123,
+                234,
+                217,
+                365
+              ],
+              "center_px": [
+                165,
+                286
+              ],
+              "color": "red",
+              "id": 3
+            },
+            {
+              "bbox": [
+                566,
+                267,
+                590,
+                390
+              ],
+              "center_px": [
+                578,
+                318
+              ],
+              "color": "gray",
+              "id": 4
+            }
+          ],
+          "derived_center": [
+            165,
+            286
+          ]
+        },
+        {
+          "id": "sideways-S",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 37.46,
+          "raw": "{\n  \"reference_attribute\": \"thin/narrow letter with a prominent visible side\",\n  \"selected_id\": 5,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 38,
+            "prompt_tokens": 919,
+            "total_tokens": 957,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 901,
+            "prompt_ms": 36128.371,
+            "prompt_per_token_ms": 40.09808102108768,
+            "prompt_per_second": 24.938849304885625,
+            "predicted_n": 38,
+            "predicted_ms": 1310.386,
+            "predicted_per_token_ms": 35.415837837837834,
+            "predicted_per_second": 28.235954901838085
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                276,
+                55,
+                383,
+                181
+              ],
+              "center_px": [
+                326,
+                166
+              ],
+              "color": "red",
+              "id": 0
+            },
+            {
+              "bbox": [
+                133,
+                103,
+                316,
+                348
+              ],
+              "center_px": [
+                284,
+                273
+              ],
+              "color": "red",
+              "id": 1
+            },
+            {
+              "bbox": [
+                697,
+                122,
+                822,
+                218
+              ],
+              "center_px": [
+                760,
+                142
+              ],
+              "color": "gray",
+              "id": 2
+            },
+            {
+              "bbox": [
+                595,
+                249,
+                693,
+                379
+              ],
+              "center_px": [
+                647,
+                336
+              ],
+              "color": "red",
+              "id": 3
+            },
+            {
+              "bbox": [
+                745,
+                264,
+                799,
+                392
+              ],
+              "center_px": [
+                769,
+                300
+              ],
+              "color": "yellow",
+              "id": 4
+            },
+            {
+              "bbox": [
+                361,
+                277,
+                474,
+                407
+              ],
+              "center_px": [
+                433,
+                339
+              ],
+              "color": "red",
+              "id": 5
+            }
+          ],
+          "derived_center": [
+            433,
+            339
+          ]
+        },
+        {
+          "id": "synthetic-green-F",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 35.74,
+          "raw": "{\n  \"reference_attribute\": \"color\",\n  \"selected_id\": 3,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 858,
+            "total_tokens": 888,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 840,
+            "prompt_ms": 34651.696,
+            "prompt_per_token_ms": 41.25201904761905,
+            "prompt_per_second": 24.241237716041372,
+            "predicted_n": 30,
+            "predicted_ms": 1066.092,
+            "predicted_per_token_ms": 36.76179310344828,
+            "predicted_per_second": 27.20215516109304
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                108,
+                102,
+                199,
+                234
+              ],
+              "center_px": [
+                125,
+                167
+              ],
+              "color": "cyan",
+              "id": 0
+            },
+            {
+              "bbox": [
+                384,
+                107,
+                490,
+                243
+              ],
+              "center_px": [
+                406,
+                156
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                687,
+                300,
+                792,
+                432
+              ],
+              "center_px": [
+                738,
+                317
+              ],
+              "color": "orange",
+              "id": 2
+            },
+            {
+              "bbox": [
+                174,
+                301,
+                265,
+                432
+              ],
+              "center_px": [
+                191,
+                365
+              ],
+              "color": "green",
+              "id": 3
+            }
+          ],
+          "derived_center": [
+            191,
+            365
+          ]
+        },
+        {
+          "id": "synthetic-blue-cube",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 34.67,
+          "raw": "{\n  \"reference_attribute\": \"blue\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 810,
+            "total_tokens": 840,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 792,
+            "prompt_ms": 33640.513,
+            "prompt_per_token_ms": 42.4753952020202,
+            "prompt_per_second": 23.543041689049154,
+            "predicted_n": 30,
+            "predicted_ms": 1009.509,
+            "predicted_per_token_ms": 34.810655172413796,
+            "predicted_per_second": 28.72683651161109
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                90,
+                90,
+                255,
+                255
+              ],
+              "center_px": [
+                172,
+                172
+              ],
+              "color": "red",
+              "id": 0
+            },
+            {
+              "bbox": [
+                378,
+                117,
+                543,
+                282
+              ],
+              "center_px": [
+                460,
+                199
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                624,
+                257,
+                789,
+                424
+              ],
+              "center_px": [
+                706,
+                340
+              ],
+              "color": "blue",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            706,
+            340
+          ]
+        },
+        {
+          "id": "synthetic-red-P",
+          "split": "holdout",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 35.76,
+          "raw": "{\n  \"reference_attribute\": \"color\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 857,
+            "total_tokens": 887,
+            "prompt_tokens_details": {
+              "cached_tokens": 17
+            }
+          },
+          "timings": {
+            "cache_n": 17,
+            "prompt_n": 840,
+            "prompt_ms": 34714.82,
+            "prompt_per_token_ms": 41.32716666666666,
+            "prompt_per_second": 24.19715844702637,
+            "predicted_n": 30,
+            "predicted_ms": 1018.453,
+            "predicted_per_token_ms": 35.11906896551724,
+            "predicted_per_second": 28.474558963447503
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                390,
+                90,
+                492,
+                222
+              ],
+              "center_px": [
+                407,
+                161
+              ],
+              "color": "blue",
+              "id": 0
+            },
+            {
+              "bbox": [
+                102,
+                108,
+                220,
+                240
+              ],
+              "center_px": [
+                119,
+                174
+              ],
+              "color": "red",
+              "id": 1
+            },
+            {
+              "bbox": [
+                687,
+                294,
+                789,
+                426
+              ],
+              "center_px": [
+                704,
+                365
+              ],
+              "color": "red",
+              "id": 2
+            },
+            {
+              "bbox": [
+                303,
+                316,
+                408,
+                447
+              ],
+              "center_px": [
+                354,
+                332
+              ],
+              "color": "green",
+              "id": 3
+            }
+          ],
+          "derived_center": [
+            704,
+            365
+          ]
+        },
+        {
+          "id": "synthetic-lowercase-k",
+          "split": "holdout",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 34.63,
+          "raw": "{\n  \"reference_attribute\": \"lowercase\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 31,
+            "prompt_tokens": 810,
+            "total_tokens": 841,
+            "prompt_tokens_details": {
+              "cached_tokens": 17
+            }
+          },
+          "timings": {
+            "cache_n": 17,
+            "prompt_n": 793,
+            "prompt_ms": 33542.266,
+            "prompt_per_token_ms": 42.297939470365705,
+            "prompt_per_second": 23.64181358528371,
+            "predicted_n": 31,
+            "predicted_ms": 1062.048,
+            "predicted_per_token_ms": 35.4016,
+            "predicted_per_second": 28.247310856006507
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                87,
+                87,
+                206,
+                219
+              ],
+              "center_px": [
+                108,
+                157
+              ],
+              "color": "blue",
+              "id": 0
+            },
+            {
+              "bbox": [
+                708,
+                151,
+                828,
+                282
+              ],
+              "center_px": [
+                767,
+                221
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                413,
+                300,
+                501,
+                432
+              ],
+              "center_px": [
+                432,
+                381
+              ],
+              "color": "red",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            432,
+            381
+          ]
+        },
+        {
+          "id": "synthetic-yellow-square",
+          "split": "holdout",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 34.69,
+          "raw": "{\n  \"reference_attribute\": \"yellow\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 809,
+            "total_tokens": 839,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 791,
+            "prompt_ms": 33599.632,
+            "prompt_per_token_ms": 42.47741087231353,
+            "prompt_per_second": 23.54192450679222,
+            "predicted_n": 30,
+            "predicted_ms": 1063.879,
+            "predicted_per_token_ms": 36.68548275862069,
+            "predicted_per_second": 27.258739010733365
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                372,
+                72,
+                546,
+                246
+              ],
+              "center_px": [
+                458,
+                158
+              ],
+              "color": "orange",
+              "id": 0
+            },
+            {
+              "bbox": [
+                660,
+                87,
+                834,
+                261
+              ],
+              "center_px": [
+                746,
+                173
+              ],
+              "color": "cyan",
+              "id": 1
+            },
+            {
+              "bbox": [
+                75,
+                228,
+                249,
+                402
+              ],
+              "center_px": [
+                161,
+                314
+              ],
+              "color": "orange",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            161,
+            314
+          ]
+        },
+        {
+          "id": "synthetic-purple-8",
+          "split": "holdout",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 34.82,
+          "raw": "{\n  \"reference_attribute\": \"color\",\n  \"selected_id\": 0,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 821,
+            "total_tokens": 851,
+            "prompt_tokens_details": {
+              "cached_tokens": 17
+            }
+          },
+          "timings": {
+            "cache_n": 17,
+            "prompt_n": 804,
+            "prompt_ms": 33785.566,
+            "prompt_per_token_ms": 42.02184825870646,
+            "prompt_per_second": 23.79714461495184,
+            "predicted_n": 30,
+            "predicted_ms": 1013.793,
+            "predicted_per_token_ms": 34.958379310344824,
+            "predicted_per_second": 28.60544509579372
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                90,
+                94,
+                195,
+                225
+              ],
+              "center_px": [
+                106,
+                156
+              ],
+              "color": "purple",
+              "id": 0
+            },
+            {
+              "bbox": [
+                663,
+                127,
+                750,
+                260
+              ],
+              "center_px": [
+                736,
+                219
+              ],
+              "color": "purple",
+              "id": 1
+            },
+            {
+              "bbox": [
+                306,
+                303,
+                393,
+                438
+              ],
+              "center_px": [
+                361,
+                364
+              ],
+              "color": "orange",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            106,
+            156
+          ]
+        },
+        {
+          "id": "real-green-F",
+          "split": "holdout",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            1200,
+            600
+          ],
+          "seconds": 57.09,
+          "raw": "{\n  \"reference_attribute\": \"color\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 1217,
+            "total_tokens": 1247,
+            "prompt_tokens_details": {
+              "cached_tokens": 17
+            }
+          },
+          "timings": {
+            "cache_n": 17,
+            "prompt_n": 1200,
+            "prompt_ms": 55948.354,
+            "prompt_per_token_ms": 46.623628333333336,
+            "prompt_per_second": 21.448352171361467,
+            "predicted_n": 30,
+            "predicted_ms": 1105.204,
+            "predicted_per_token_ms": 38.11048275862069,
+            "predicted_per_second": 26.2394996760779
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                170,
+                46,
+                278,
+                199
+              ],
+              "center_px": [
+                206,
+                130
+              ],
+              "color": "cyan",
+              "id": 0
+            },
+            {
+              "bbox": [
+                373,
+                118,
+                488,
+                275
+              ],
+              "center_px": [
+                430,
+                224
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                101,
+                197,
+                218,
+                352
+              ],
+              "center_px": [
+                165,
+                240
+              ],
+              "color": "cyan",
+              "id": 2
+            },
+            {
+              "bbox": [
+                673,
+                358,
+                762,
+                518
+              ],
+              "center_px": [
+                728,
+                398
+              ],
+              "color": "green",
+              "id": 3
+            },
+            {
+              "bbox": [
+                182,
+                362,
+                301,
+                522
+              ],
+              "center_px": [
+                212,
+                440
+              ],
+              "color": "green",
+              "id": 4
+            }
+          ],
+          "derived_center": [
+            165,
+            240
+          ]
+        }
+      ],
+      "command": [
+        "/opt/homebrew/bin/llama-server",
+        "-m",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b-vision-q8/model.gguf",
+        "--mmproj",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b-vision-q8/mmproj.gguf",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "-c",
+        "4096",
+        "--parallel",
+        "1",
+        "-t",
+        "4",
+        "--alias",
+        "local-vision",
+        "--verbosity",
+        "4",
+        "--device",
+        "none",
+        "-ngl",
+        "0",
+        "--no-mmproj-offload",
+        "--no-op-offload"
+      ],
+      "load_seconds": 2.6,
+      "status": "completed",
+      "peak_rss_mb": 4715.5,
+      "memory_breakdown_lines": [
+        "0.00.220.756 I common_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   model   context   compute    unaccounted |",
+        "0.00.220.758 I common_memory_breakdown_print: |   - Host               |                  557 =   244 +     144 +     169                |",
+        "0.00.220.758 I common_memory_breakdown_print: |   - CPU_REPACK         |                 1833 =  1833 +       0 +       0                |",
+        "6.23.351.790 I common_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   model   context   compute    unaccounted |",
+        "6.23.351.792 I common_memory_breakdown_print: |   - Host               |                 2051 =  1822 +     144 +      84                |",
+        "6.23.351.792 I common_memory_breakdown_print: |   - CPU_REPACK         |                 1833 =  1833 +       0 +       0                |"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,593 @@
+{
+  "model": "q4-grounded-scale1",
+  "devices": "Available devices:\n  BLAS: Accelerate (0 MiB, 0 MiB free)\n  MTL0: Apple M4 (10922 MiB, 10922 MiB free)\n",
+  "memory_limit_gb": 8,
+  "prompt": "grounded",
+  "image_scale": 1,
+  "split": "calibration",
+  "repeats": 1,
+  "method": "Annotated real and synthetic screenshots; supplied English instruction; JSON constrained decoding; absolute image-pixel output checked against normalized target boxes. Not live platform pass rate. RSS excludes some Metal allocations.",
+  "runs": [
+    {
+      "backend": "metal",
+      "cases": [
+        {
+          "id": "blue-cube",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            320,
+            160
+          ],
+          "seconds": 1.66,
+          "raw": "{\n  \"reference_attribute\": \"blue\",\n  \"selected_id\": 3,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 423,
+            "total_tokens": 453,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 423,
+            "prompt_ms": 1028.557,
+            "prompt_per_token_ms": 2.4315768321513005,
+            "prompt_per_second": 411.2557690045374,
+            "predicted_n": 30,
+            "predicted_ms": 616.824,
+            "predicted_per_token_ms": 21.269793103448276,
+            "predicted_per_second": 47.01503184052502
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                82,
+                9,
+                112,
+                52
+              ],
+              "center_px": [
+                101,
+                44
+              ],
+              "color": "gray",
+              "id": 0
+            },
+            {
+              "bbox": [
+                129,
+                32,
+                164,
+                75
+              ],
+              "center_px": [
+                144,
+                65
+              ],
+              "color": "gray",
+              "id": 1
+            },
+            {
+              "bbox": [
+                30,
+                47,
+                58,
+                92
+              ],
+              "center_px": [
+                35,
+                63
+              ],
+              "color": "yellow",
+              "id": 2
+            },
+            {
+              "bbox": [
+                250,
+                59,
+                285,
+                103
+              ],
+              "center_px": [
+                267,
+                76
+              ],
+              "color": "blue",
+              "id": 3
+            },
+            {
+              "bbox": [
+                186,
+                81,
+                222,
+                125
+              ],
+              "center_px": [
+                203,
+                98
+              ],
+              "color": "green",
+              "id": 4
+            },
+            {
+              "bbox": [
+                29,
+                96,
+                71,
+                141
+              ],
+              "center_px": [
+                38,
+                117
+              ],
+              "color": "yellow",
+              "id": 5
+            },
+            {
+              "bbox": [
+                89,
+                98,
+                124,
+                142
+              ],
+              "center_px": [
+                105,
+                119
+              ],
+              "color": "yellow",
+              "id": 6
+            }
+          ],
+          "derived_center": [
+            267,
+            76
+          ]
+        },
+        {
+          "id": "number-orientation",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            320,
+            160
+          ],
+          "seconds": 1.63,
+          "raw": "{\n  \"reference_attribute\": \"3D facing direction\",\n  \"selected_id\": 1,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 33,
+            "prompt_tokens": 374,
+            "total_tokens": 407,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 356,
+            "prompt_ms": 913.054,
+            "prompt_per_token_ms": 2.564758426966292,
+            "prompt_per_second": 389.90026876833133,
+            "predicted_n": 33,
+            "predicted_ms": 705.417,
+            "predicted_per_token_ms": 22.04428125,
+            "predicted_per_second": 45.36323904867617
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                62,
+                10,
+                95,
+                53
+              ],
+              "center_px": [
+                88,
+                17
+              ],
+              "color": "gray",
+              "id": 0
+            },
+            {
+              "bbox": [
+                130,
+                30,
+                153,
+                73
+              ],
+              "center_px": [
+                137,
+                47
+              ],
+              "color": "blue",
+              "id": 1
+            },
+            {
+              "bbox": [
+                88,
+                48,
+                112,
+                92
+              ],
+              "center_px": [
+                103,
+                60
+              ],
+              "color": "green",
+              "id": 2
+            },
+            {
+              "bbox": [
+                41,
+                78,
+                72,
+                122
+              ],
+              "center_px": [
+                55,
+                95
+              ],
+              "color": "red",
+              "id": 3
+            },
+            {
+              "bbox": [
+                189,
+                89,
+                197,
+                130
+              ],
+              "center_px": [
+                192,
+                94
+              ],
+              "color": "gray",
+              "id": 4
+            }
+          ],
+          "derived_center": [
+            137,
+            47
+          ]
+        },
+        {
+          "id": "sideways-S",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            320,
+            160
+          ],
+          "seconds": 1.6,
+          "raw": "{\n  \"reference_attribute\": \"side\",\n  \"selected_id\": 1,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 398,
+            "total_tokens": 428,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 380,
+            "prompt_ms": 969.022,
+            "prompt_per_token_ms": 2.550057894736842,
+            "prompt_per_second": 392.14795948905186,
+            "predicted_n": 30,
+            "predicted_ms": 624.98,
+            "predicted_per_token_ms": 21.55103448275862,
+            "predicted_per_second": 46.40148484751512
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                92,
+                18,
+                128,
+                60
+              ],
+              "center_px": [
+                109,
+                52
+              ],
+              "color": "red",
+              "id": 0
+            },
+            {
+              "bbox": [
+                44,
+                34,
+                105,
+                116
+              ],
+              "center_px": [
+                87,
+                86
+              ],
+              "color": "red",
+              "id": 1
+            },
+            {
+              "bbox": [
+                232,
+                41,
+                274,
+                73
+              ],
+              "center_px": [
+                253,
+                50
+              ],
+              "color": "gray",
+              "id": 2
+            },
+            {
+              "bbox": [
+                198,
+                83,
+                231,
+                126
+              ],
+              "center_px": [
+                215,
+                111
+              ],
+              "color": "red",
+              "id": 3
+            },
+            {
+              "bbox": [
+                248,
+                88,
+                266,
+                131
+              ],
+              "center_px": [
+                256,
+                100
+              ],
+              "color": "yellow",
+              "id": 4
+            },
+            {
+              "bbox": [
+                120,
+                92,
+                158,
+                136
+              ],
+              "center_px": [
+                140,
+                105
+              ],
+              "color": "red",
+              "id": 5
+            }
+          ],
+          "derived_center": [
+            87,
+            86
+          ]
+        },
+        {
+          "id": "synthetic-green-F",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            320,
+            160
+          ],
+          "seconds": 1.48,
+          "raw": "{\n  \"reference_attribute\": \"color\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 338,
+            "total_tokens": 368,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 320,
+            "prompt_ms": 854.632,
+            "prompt_per_token_ms": 2.670725,
+            "prompt_per_second": 374.4301640940194,
+            "predicted_n": 30,
+            "predicted_ms": 618.182,
+            "predicted_per_token_ms": 21.316620689655174,
+            "predicted_per_second": 46.911750908308555
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                36,
+                34,
+                66,
+                78
+              ],
+              "center_px": [
+                41,
+                39
+              ],
+              "color": "cyan",
+              "id": 0
+            },
+            {
+              "bbox": [
+                128,
+                36,
+                163,
+                81
+              ],
+              "center_px": [
+                134,
+                49
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                58,
+                100,
+                88,
+                144
+              ],
+              "center_px": [
+                63,
+                121
+              ],
+              "color": "green",
+              "id": 2
+            },
+            {
+              "bbox": [
+                229,
+                100,
+                264,
+                144
+              ],
+              "center_px": [
+                245,
+                105
+              ],
+              "color": "orange",
+              "id": 3
+            }
+          ],
+          "derived_center": [
+            63,
+            121
+          ]
+        },
+        {
+          "id": "synthetic-blue-cube",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            320,
+            160
+          ],
+          "seconds": 1.19,
+          "raw": "{\n  \"reference_attribute\": \"blue\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 293,
+            "total_tokens": 323,
+            "prompt_tokens_details": {
+              "cached_tokens": 126
+            }
+          },
+          "timings": {
+            "cache_n": 126,
+            "prompt_n": 167,
+            "prompt_ms": 570.043,
+            "prompt_per_token_ms": 3.413431137724551,
+            "prompt_per_second": 292.96035562229514,
+            "predicted_n": 30,
+            "predicted_ms": 616.73,
+            "predicted_per_token_ms": 21.266551724137933,
+            "predicted_per_second": 47.02219772023414
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                30,
+                30,
+                85,
+                85
+              ],
+              "center_px": [
+                57,
+                57
+              ],
+              "color": "red",
+              "id": 0
+            },
+            {
+              "bbox": [
+                126,
+                39,
+                181,
+                94
+              ],
+              "center_px": [
+                153,
+                66
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                208,
+                86,
+                263,
+                141
+              ],
+              "center_px": [
+                235,
+                113
+              ],
+              "color": "blue",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            235,
+            113
+          ]
+        }
+      ],
+      "command": [
+        "/opt/homebrew/bin/llama-server",
+        "-m",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b/model.gguf",
+        "--mmproj",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b/mmproj.gguf",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "-c",
+        "4096",
+        "--parallel",
+        "1",
+        "-t",
+        "4",
+        "--alias",
+        "local-vision",
+        "--verbosity",
+        "4",
+        "--device",
+        "MTL0",
+        "-ngl",
+        "99"
+      ],
+      "load_seconds": 2.63,
+      "status": "completed",
+      "peak_rss_mb": 1630.3,
+      "memory_breakdown_lines": [
+        "0.00.294.155 I common_memory_breakdown_print: | memory breakdown [MiB] | total    free    self   model   context   compute    unaccounted |",
+        "0.00.294.157 I common_memory_breakdown_print: |   - MTL0 (Apple M4)    | 10922 = 10922 + (2055 =  1834 +     144 +      76) +       -2054 |",
+        "0.00.294.157 I common_memory_breakdown_print: |   - Host               |                   267 =   243 +       0 +      24                |",
+        "0.19.647.093 I common_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   model   context   compute    unaccounted |",
+        "0.19.647.094 I common_memory_breakdown_print: |   - MTL0 (Apple M4)    | 10922 = 6737 + (2055 =  1834 +     144 +      76) +        2129 |",
+        "0.19.647.095 I common_memory_breakdown_print: |   - Host               |                  255 =   243 +       0 +      12                |"
+      ]
+    }
+  ]
+}

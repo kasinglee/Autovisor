@@ -16,6 +16,10 @@ showDonateCode = False
 [vision-option]
 provider = llama
 localUrl = http://127.0.0.1:8091
+; 实验组合：OpenCV 编号定位 + 本地视觉模型选择，需 uv sync --extra captcha
+localPrompt = grounded
+imageScale = 3
+largeLabels = True
 
 [course-option]
 limitMaxTime = 5

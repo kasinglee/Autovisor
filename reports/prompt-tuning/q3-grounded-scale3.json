@@ -1,0 +1,691 @@
+{
+  "model": "q3-grounded-scale3",
+  "devices": "Available devices:\n  BLAS: Accelerate (0 MiB, 0 MiB free)\n  MTL0: Apple M4 (10922 MiB, 10922 MiB free)\n",
+  "memory_limit_gb": 8,
+  "prompt": "grounded",
+  "image_scale": 3,
+  "split": "calibration",
+  "repeats": 1,
+  "method": "Annotated real and synthetic screenshots; supplied English instruction; JSON constrained decoding; absolute image-pixel output checked against normalized target boxes. Not live platform pass rate. RSS excludes some Metal allocations.",
+  "runs": [
+    {
+      "backend": "metal",
+      "cases": [
+        {
+          "id": "blue-cube",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 4.89,
+          "raw": "{\"reference_attribute\": \"testing\", \"selected_id\": 1, \"uncertain\": true}",
+          "usage": {
+            "completion_tokens": 39,
+            "prompt_tokens": 1047,
+            "total_tokens": 1086,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 1047,
+            "prompt_ms": 3630.689,
+            "prompt_per_token_ms": 3.467706781279847,
+            "prompt_per_second": 288.37501642250277,
+            "predicted_n": 39,
+            "predicted_ms": 1244.313,
+            "predicted_per_token_ms": 32.74507894736843,
+            "predicted_per_second": 30.53893996124769
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                895,
+                25,
+                930,
+                50
+              ],
+              "center_px": [
+                909,
+                27
+              ],
+              "color": "gray",
+              "id": 0
+            },
+            {
+              "bbox": [
+                247,
+                28,
+                336,
+                156
+              ],
+              "center_px": [
+                317,
+                131
+              ],
+              "color": "gray",
+              "id": 1
+            },
+            {
+              "bbox": [
+                264,
+                52,
+                293,
+                91
+              ],
+              "center_px": [
+                276,
+                70
+              ],
+              "color": "gray",
+              "id": 2
+            },
+            {
+              "bbox": [
+                891,
+                61,
+                940,
+                77
+              ],
+              "center_px": [
+                901,
+                71
+              ],
+              "color": "gray",
+              "id": 3
+            },
+            {
+              "bbox": [
+                387,
+                96,
+                492,
+                227
+              ],
+              "center_px": [
+                428,
+                198
+              ],
+              "color": "gray",
+              "id": 4
+            },
+            {
+              "bbox": [
+                90,
+                142,
+                175,
+                275
+              ],
+              "center_px": [
+                106,
+                191
+              ],
+              "color": "yellow",
+              "id": 5
+            },
+            {
+              "bbox": [
+                750,
+                177,
+                856,
+                310
+              ],
+              "center_px": [
+                802,
+                229
+              ],
+              "color": "blue",
+              "id": 6
+            },
+            {
+              "bbox": [
+                559,
+                243,
+                665,
+                374
+              ],
+              "center_px": [
+                611,
+                295
+              ],
+              "color": "green",
+              "id": 7
+            },
+            {
+              "bbox": [
+                86,
+                288,
+                214,
+                424
+              ],
+              "center_px": [
+                184,
+                353
+              ],
+              "color": "yellow",
+              "id": 8
+            },
+            {
+              "bbox": [
+                266,
+                293,
+                371,
+                426
+              ],
+              "center_px": [
+                322,
+                361
+              ],
+              "color": "orange",
+              "id": 9
+            }
+          ],
+          "derived_center": [
+            317,
+            131
+          ]
+        },
+        {
+          "id": "number-orientation",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 4.66,
+          "raw": "{\"reference_attribute\": \"testing\", \"selected_id\": 1, \"uncertain\": true}",
+          "usage": {
+            "completion_tokens": 41,
+            "prompt_tokens": 963,
+            "total_tokens": 1004,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 945,
+            "prompt_ms": 3323.72,
+            "prompt_per_token_ms": 3.517164021164021,
+            "prompt_per_second": 284.3199788189138,
+            "predicted_n": 41,
+            "predicted_ms": 1314.967,
+            "predicted_per_token_ms": 32.874175,
+            "predicted_per_second": 30.41901431746956
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                895,
+                25,
+                930,
+                50
+              ],
+              "center_px": [
+                909,
+                27
+              ],
+              "color": "gray",
+              "id": 0
+            },
+            {
+              "bbox": [
+                186,
+                31,
+                285,
+                158
+              ],
+              "center_px": [
+                266,
+                53
+              ],
+              "color": "gray",
+              "id": 1
+            },
+            {
+              "bbox": [
+                891,
+                61,
+                940,
+                77
+              ],
+              "center_px": [
+                901,
+                71
+              ],
+              "color": "gray",
+              "id": 2
+            },
+            {
+              "bbox": [
+                390,
+                90,
+                459,
+                219
+              ],
+              "center_px": [
+                408,
+                135
+              ],
+              "color": "blue",
+              "id": 3
+            },
+            {
+              "bbox": [
+                263,
+                144,
+                337,
+                275
+              ],
+              "center_px": [
+                311,
+                179
+              ],
+              "color": "green",
+              "id": 4
+            },
+            {
+              "bbox": [
+                123,
+                234,
+                217,
+                365
+              ],
+              "center_px": [
+                165,
+                286
+              ],
+              "color": "red",
+              "id": 5
+            },
+            {
+              "bbox": [
+                566,
+                267,
+                590,
+                390
+              ],
+              "center_px": [
+                578,
+                318
+              ],
+              "color": "gray",
+              "id": 6
+            }
+          ],
+          "derived_center": [
+            266,
+            53
+          ]
+        },
+        {
+          "id": "sideways-S",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 4.56,
+          "raw": "{\"reference_attribute\": \"testing\", \"selected_id\": 1, \"uncertain\": true}",
+          "usage": {
+            "completion_tokens": 39,
+            "prompt_tokens": 985,
+            "total_tokens": 1024,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 967,
+            "prompt_ms": 3314.389,
+            "prompt_per_token_ms": 3.4274963805584284,
+            "prompt_per_second": 291.75814908871587,
+            "predicted_n": 39,
+            "predicted_ms": 1222.156,
+            "predicted_per_token_ms": 32.162,
+            "predicted_per_second": 31.092593744170138
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                895,
+                25,
+                930,
+                50
+              ],
+              "center_px": [
+                909,
+                27
+              ],
+              "color": "gray",
+              "id": 0
+            },
+            {
+              "bbox": [
+                276,
+                55,
+                383,
+                181
+              ],
+              "center_px": [
+                326,
+                166
+              ],
+              "color": "red",
+              "id": 1
+            },
+            {
+              "bbox": [
+                891,
+                61,
+                940,
+                77
+              ],
+              "center_px": [
+                901,
+                71
+              ],
+              "color": "gray",
+              "id": 2
+            },
+            {
+              "bbox": [
+                133,
+                103,
+                316,
+                348
+              ],
+              "center_px": [
+                284,
+                273
+              ],
+              "color": "red",
+              "id": 3
+            },
+            {
+              "bbox": [
+                697,
+                122,
+                822,
+                218
+              ],
+              "center_px": [
+                760,
+                142
+              ],
+              "color": "gray",
+              "id": 4
+            },
+            {
+              "bbox": [
+                595,
+                249,
+                693,
+                379
+              ],
+              "center_px": [
+                647,
+                336
+              ],
+              "color": "red",
+              "id": 5
+            },
+            {
+              "bbox": [
+                745,
+                264,
+                799,
+                392
+              ],
+              "center_px": [
+                769,
+                300
+              ],
+              "color": "yellow",
+              "id": 6
+            },
+            {
+              "bbox": [
+                361,
+                277,
+                474,
+                407
+              ],
+              "center_px": [
+                433,
+                339
+              ],
+              "color": "red",
+              "id": 7
+            }
+          ],
+          "derived_center": [
+            326,
+            166
+          ]
+        },
+        {
+          "id": "synthetic-green-F",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 5.03,
+          "raw": "{\"reference_attribute\": \"fmt\", \"selected_id\": 1, \"uncertain\": true\n                    }",
+          "usage": {
+            "completion_tokens": 63,
+            "prompt_tokens": 858,
+            "total_tokens": 921,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 840,
+            "prompt_ms": 3078.726,
+            "prompt_per_token_ms": 3.66515,
+            "prompt_per_second": 272.8401293262213,
+            "predicted_n": 63,
+            "predicted_ms": 1930.368,
+            "predicted_per_token_ms": 31.134967741935483,
+            "predicted_per_second": 32.11822823420198
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                108,
+                102,
+                199,
+                234
+              ],
+              "center_px": [
+                125,
+                167
+              ],
+              "color": "cyan",
+              "id": 0
+            },
+            {
+              "bbox": [
+                384,
+                107,
+                490,
+                243
+              ],
+              "center_px": [
+                406,
+                156
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                687,
+                300,
+                792,
+                432
+              ],
+              "center_px": [
+                738,
+                317
+              ],
+              "color": "orange",
+              "id": 2
+            },
+            {
+              "bbox": [
+                174,
+                301,
+                265,
+                432
+              ],
+              "center_px": [
+                191,
+                365
+              ],
+              "color": "green",
+              "id": 3
+            }
+          ],
+          "derived_center": [
+            406,
+            156
+          ]
+        },
+        {
+          "id": "synthetic-blue-cube",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 4.31,
+          "raw": "{\"reference_attribute\": \"testing\", \"selected_id\": 1, \"uncertain\": true}",
+          "usage": {
+            "completion_tokens": 40,
+            "prompt_tokens": 810,
+            "total_tokens": 850,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 792,
+            "prompt_ms": 3009.381,
+            "prompt_per_token_ms": 3.7997234848484847,
+            "prompt_per_second": 263.1770453790995,
+            "predicted_n": 40,
+            "predicted_ms": 1286.201,
+            "predicted_per_token_ms": 32.979512820512824,
+            "predicted_per_second": 30.321854826733922
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                90,
+                90,
+                255,
+                255
+              ],
+              "center_px": [
+                172,
+                172
+              ],
+              "color": "red",
+              "id": 0
+            },
+            {
+              "bbox": [
+                378,
+                117,
+                543,
+                282
+              ],
+              "center_px": [
+                460,
+                199
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                624,
+                257,
+                789,
+                424
+              ],
+              "center_px": [
+                706,
+                340
+              ],
+              "color": "blue",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            460,
+            199
+          ]
+        }
+      ],
+      "command": [
+        "/opt/homebrew/bin/llama-server",
+        "-m",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b-q3/model.gguf",
+        "--mmproj",
+        "/Users/jasonlei/.cache/autovisor-models/qwen25vl-3b-q3/mmproj.gguf",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "-c",
+        "4096",
+        "--parallel",
+        "1",
+        "-t",
+        "4",
+        "--alias",
+        "local-vision",
+        "--verbosity",
+        "4",
+        "--device",
+        "MTL0",
+        "-ngl",
+        "99"
+      ],
+      "load_seconds": 2.1,
+      "status": "completed",
+      "peak_rss_mb": 1974.6,
+      "memory_breakdown_lines": [
+        "0.00.281.079 I common_memory_breakdown_print: | memory breakdown [MiB] | total    free    self   model   context   compute    unaccounted |",
+        "0.00.281.081 I common_memory_breakdown_print: |   - MTL0 (Apple M4)    | 10922 = 10922 + (1731 =  1511 +     144 +      76) +       -1731 |",
+        "0.00.281.082 I common_memory_breakdown_print: |   - Host               |                   267 =   243 +       0 +      24                |",
+        "0.25.708.436 I common_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   model   context   compute    unaccounted |",
+        "0.25.708.437 I common_memory_breakdown_print: |   - MTL0 (Apple M4)    | 10922 = 7061 + (1731 =  1511 +     144 +      76) +        2129 |",
+        "0.25.708.437 I common_memory_breakdown_print: |   - Host               |                  255 =   243 +       0 +      12                |"
+      ]
+    }
+  ]
+}

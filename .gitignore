@@ -21,3 +21,4 @@ logs/
 ./preview/*
 *.egg-info/
 reports/local-vision/*-server.log
+reports/prompt-tuning/*-server.log

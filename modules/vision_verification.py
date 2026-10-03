@@ -95,8 +95,10 @@ async def attempt_course_verification(page, logger, config=None):
             await dialog.screenshot(path=str(diagnostic), scale="css", timeout=3000)
             image_src = await image.get_attribute("src")
             crop = await image.screenshot(scale="css", timeout=3000)
+            provider = getattr(config, "vision_provider", "deepseek")
+            scale = getattr(config, "vision_image_scale", 3) if provider == "llama" else 3
             with Image.open(io.BytesIO(crop)) as png:
-                enlarged = png.resize((png.width * 3, png.height * 3))
+                enlarged = png.resize((png.width * scale, png.height * scale))
                 encoded = io.BytesIO()
                 enlarged.save(encoded, format="PNG")
             payload = {
@@ -121,7 +123,7 @@ async def attempt_course_verification(page, logger, config=None):
                     }},
                 ]}],
             }
-            provider = getattr(config, "vision_provider", "deepseek")
+            image_candidates = None
             if provider == "llama":
                 local_url = getattr(config, "vision_local_url", "http://127.0.0.1:8091").rstrip("/")
                 parsed = urlparse(local_url)
@@ -140,6 +142,15 @@ async def attempt_course_verification(page, logger, config=None):
                     f"右下角为[{enlarged.width-1},{enlarged.height-1}]。"
                     "不确定时uncertain=true，不要猜测。"
                 )
+                if getattr(config, "vision_local_prompt", "baseline") == "grounded":
+                    from modules.vision_candidates import extract_candidates, candidate_image, selection_format, grounded_prompt
+                    image_candidates = extract_candidates(enlarged)
+                    annotated = candidate_image(enlarged, image_candidates, getattr(config, "vision_large_labels", False))
+                    buffer = io.BytesIO()
+                    annotated.save(buffer, format="PNG")
+                    payload["messages"][0]["content"][1]["image_url"]["url"] = "data:image/png;base64," + base64.b64encode(buffer.getvalue()).decode()
+                    payload["messages"][0]["content"][0]["text"] = grounded_prompt(prompt, image_candidates)
+                    payload["response_format"] = selection_format()
                 headers = {}
             elif provider == "deepseek":
                 endpoint = "https://api.deepseek.com/chat/completions"
@@ -156,6 +167,11 @@ async def attempt_course_verification(page, logger, config=None):
                 return False
             content = response.json()["choices"][0]["message"]["content"]
             logger.event("视觉验证模型答案", 答案=content[:1800])
+            if image_candidates is not None:
+                from modules.local_vision import decode_json
+                from modules.vision_candidates import selected_point
+                data = decode_json(content)
+                content = json.dumps({"center_px": selected_point(data, image_candidates), "uncertain": False})
             point_size = (enlarged.width, enlarged.height) if provider == "llama" else (1000, 1000)
             point = parse_point(content, *point_size)
             if not await dialog.is_visible():

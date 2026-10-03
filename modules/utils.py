@@ -213,7 +213,15 @@ async def optimize_page(
             logger.info("已关闭学前必读弹窗.")
 
         if catalog.name == "legacy":
-            await evaluate_js(page, ".studytime-div", config.pop_js)
+            # 学习时长提示并非每次都会出现，不能继承页面的 24 小时超时。
+            try:
+                await page.wait_for_selector(
+                    ".studytime-div", state="visible", timeout=1500
+                )
+            except TimeoutError:
+                logger.debug("学习时长提示未出现，跳过并继续进入课时.")
+            else:
+                await page.evaluate(config.pop_js)
             hour = time.localtime().tm_hour
             if hour >= 18 or hour < 7:
                 await evaluate_on_element(page, ".Patternbtn-div", "el=>el.click()", timeout=1500)

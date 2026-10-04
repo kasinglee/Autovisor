@@ -1,0 +1,3 @@
+Command: uv run --extra captcha --extra benchmark python -m unittest discover -s tests -q
+Ran 105 tests in 0.320s
+OK (skipped=3)

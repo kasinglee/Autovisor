@@ -1,0 +1,11 @@
+windows-q4-fast-cpu16 cpu ready
+windows-q4-fast-cpu16 cpu blue-cube 2.98 True
+windows-q4-fast-cpu16 cpu number-orientation 2.67 False
+windows-q4-fast-cpu16 cpu sideways-S 3.14 False
+windows-q4-fast-cpu16 cpu synthetic-green-F 2.53 True
+windows-q4-fast-cpu16 cpu synthetic-blue-cube 2.16 True
+windows-q4-fast-cpu16 cpu synthetic-red-P 2.52 True
+windows-q4-fast-cpu16 cpu synthetic-lowercase-k 2.44 False
+windows-q4-fast-cpu16 cpu synthetic-yellow-square 2.47 False
+windows-q4-fast-cpu16 cpu synthetic-purple-8 2.41 True
+windows-q4-fast-cpu16 cpu real-green-F 2.95 False

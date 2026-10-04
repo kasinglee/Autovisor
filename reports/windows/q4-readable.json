@@ -1,0 +1,3270 @@
+{
+  "model": "windows-q4-readable",
+  "devices": "Available devices:\n  CUDA0: NVIDIA GeForce RTX 4080 SUPER (16375 MiB, 15031 MiB free)\n",
+  "memory_limit_gb": 8.0,
+  "prompt": "grounded",
+  "image_scale": 3,
+  "split": "all",
+  "repeats": 1,
+  "large_labels": true,
+  "threads": 4,
+  "method": "Annotated real and synthetic screenshots; supplied English instruction; JSON constrained decoding; absolute image-pixel output checked against normalized target boxes. Not live platform pass rate. RSS excludes some Metal allocations.",
+  "runs": [
+    {
+      "backend": "cpu",
+      "cases": [
+        {
+          "id": "blue-cube",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 14.09,
+          "raw": "{\n  \"reference_attribute\": \"blue\",\n  \"selected_id\": 4,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 981,
+            "total_tokens": 1011,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 981,
+            "prompt_ms": 12864.883,
+            "prompt_per_token_ms": 13.1140499490316,
+            "prompt_per_second": 76.25409418803109,
+            "predicted_n": 30,
+            "predicted_ms": 1213.155,
+            "predicted_per_token_ms": 41.832931034482755,
+            "predicted_per_second": 23.904612353738806
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                247,
+                28,
+                336,
+                156
+              ],
+              "center_px": [
+                317,
+                131
+              ],
+              "color": "gray",
+              "id": 0
+            },
+            {
+              "bbox": [
+                264,
+                52,
+                293,
+                91
+              ],
+              "center_px": [
+                276,
+                70
+              ],
+              "color": "gray",
+              "id": 1
+            },
+            {
+              "bbox": [
+                387,
+                96,
+                492,
+                227
+              ],
+              "center_px": [
+                428,
+                198
+              ],
+              "color": "gray",
+              "id": 2
+            },
+            {
+              "bbox": [
+                90,
+                142,
+                175,
+                275
+              ],
+              "center_px": [
+                106,
+                191
+              ],
+              "color": "yellow",
+              "id": 3
+            },
+            {
+              "bbox": [
+                750,
+                177,
+                856,
+                310
+              ],
+              "center_px": [
+                802,
+                229
+              ],
+              "color": "blue",
+              "id": 4
+            },
+            {
+              "bbox": [
+                559,
+                243,
+                665,
+                374
+              ],
+              "center_px": [
+                611,
+                295
+              ],
+              "color": "green",
+              "id": 5
+            },
+            {
+              "bbox": [
+                86,
+                288,
+                214,
+                424
+              ],
+              "center_px": [
+                184,
+                353
+              ],
+              "color": "yellow",
+              "id": 6
+            },
+            {
+              "bbox": [
+                266,
+                293,
+                371,
+                426
+              ],
+              "center_px": [
+                322,
+                361
+              ],
+              "color": "orange",
+              "id": 7
+            }
+          ],
+          "derived_center": [
+            802,
+            229
+          ]
+        },
+        {
+          "id": "number-orientation",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 13.53,
+          "raw": "{\n  \"reference_attribute\": \"3D facing direction\",\n  \"selected_id\": 4,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 33,
+            "prompt_tokens": 897,
+            "total_tokens": 930,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 879,
+            "prompt_ms": 12191.41,
+            "prompt_per_token_ms": 13.869635949943117,
+            "prompt_per_second": 72.09994578149698,
+            "predicted_n": 33,
+            "predicted_ms": 1324.905,
+            "predicted_per_token_ms": 41.40328125,
+            "predicted_per_second": 24.15267509745982
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                186,
+                31,
+                285,
+                158
+              ],
+              "center_px": [
+                266,
+                53
+              ],
+              "color": "gray",
+              "id": 0
+            },
+            {
+              "bbox": [
+                390,
+                90,
+                459,
+                219
+              ],
+              "center_px": [
+                408,
+                135
+              ],
+              "color": "blue",
+              "id": 1
+            },
+            {
+              "bbox": [
+                263,
+                144,
+                337,
+                275
+              ],
+              "center_px": [
+                311,
+                179
+              ],
+              "color": "green",
+              "id": 2
+            },
+            {
+              "bbox": [
+                123,
+                234,
+                217,
+                365
+              ],
+              "center_px": [
+                165,
+                286
+              ],
+              "color": "red",
+              "id": 3
+            },
+            {
+              "bbox": [
+                566,
+                267,
+                590,
+                390
+              ],
+              "center_px": [
+                578,
+                318
+              ],
+              "color": "gray",
+              "id": 4
+            }
+          ],
+          "derived_center": [
+            578,
+            318
+          ]
+        },
+        {
+          "id": "sideways-S",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 13.91,
+          "raw": "{\n  \"reference_attribute\": \"thin/narrow letter with a prominent visible side\",\n  \"selected_id\": 3,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 38,
+            "prompt_tokens": 919,
+            "total_tokens": 957,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 901,
+            "prompt_ms": 12204.837,
+            "prompt_per_token_ms": 13.545879023307435,
+            "prompt_per_second": 73.82318993690781,
+            "predicted_n": 38,
+            "predicted_ms": 1678.364,
+            "predicted_per_token_ms": 45.36118918918919,
+            "predicted_per_second": 22.045277424920933
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                276,
+                55,
+                383,
+                181
+              ],
+              "center_px": [
+                326,
+                166
+              ],
+              "color": "red",
+              "id": 0
+            },
+            {
+              "bbox": [
+                133,
+                103,
+                316,
+                348
+              ],
+              "center_px": [
+                284,
+                273
+              ],
+              "color": "red",
+              "id": 1
+            },
+            {
+              "bbox": [
+                697,
+                122,
+                822,
+                218
+              ],
+              "center_px": [
+                760,
+                142
+              ],
+              "color": "gray",
+              "id": 2
+            },
+            {
+              "bbox": [
+                595,
+                249,
+                693,
+                379
+              ],
+              "center_px": [
+                647,
+                336
+              ],
+              "color": "red",
+              "id": 3
+            },
+            {
+              "bbox": [
+                745,
+                264,
+                799,
+                392
+              ],
+              "center_px": [
+                769,
+                300
+              ],
+              "color": "yellow",
+              "id": 4
+            },
+            {
+              "bbox": [
+                361,
+                277,
+                474,
+                407
+              ],
+              "center_px": [
+                433,
+                339
+              ],
+              "color": "red",
+              "id": 5
+            }
+          ],
+          "derived_center": [
+            647,
+            336
+          ]
+        },
+        {
+          "id": "synthetic-green-F",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 13.02,
+          "raw": "{\n  \"reference_attribute\": \"color\",\n  \"selected_id\": 3,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 858,
+            "total_tokens": 888,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 840,
+            "prompt_ms": 11809.021,
+            "prompt_per_token_ms": 14.058358333333334,
+            "prompt_per_second": 71.13206082028307,
+            "predicted_n": 30,
+            "predicted_ms": 1188.921,
+            "predicted_per_token_ms": 40.99727586206897,
+            "predicted_per_second": 24.391864556181613
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                108,
+                102,
+                199,
+                234
+              ],
+              "center_px": [
+                125,
+                167
+              ],
+              "color": "cyan",
+              "id": 0
+            },
+            {
+              "bbox": [
+                384,
+                107,
+                490,
+                243
+              ],
+              "center_px": [
+                406,
+                156
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                687,
+                300,
+                792,
+                432
+              ],
+              "center_px": [
+                738,
+                317
+              ],
+              "color": "orange",
+              "id": 2
+            },
+            {
+              "bbox": [
+                174,
+                301,
+                265,
+                432
+              ],
+              "center_px": [
+                191,
+                365
+              ],
+              "color": "green",
+              "id": 3
+            }
+          ],
+          "derived_center": [
+            191,
+            365
+          ]
+        },
+        {
+          "id": "synthetic-blue-cube",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 13.66,
+          "raw": "{\n  \"reference_attribute\": \"blue\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 810,
+            "total_tokens": 840,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 792,
+            "prompt_ms": 12464.387,
+            "prompt_per_token_ms": 15.737862373737375,
+            "prompt_per_second": 63.54103093878583,
+            "predicted_n": 30,
+            "predicted_ms": 1179.809,
+            "predicted_per_token_ms": 40.68306896551724,
+            "predicted_per_second": 24.580249854001792
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                90,
+                90,
+                255,
+                255
+              ],
+              "center_px": [
+                172,
+                172
+              ],
+              "color": "red",
+              "id": 0
+            },
+            {
+              "bbox": [
+                378,
+                117,
+                543,
+                282
+              ],
+              "center_px": [
+                460,
+                199
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                624,
+                257,
+                789,
+                424
+              ],
+              "center_px": [
+                706,
+                340
+              ],
+              "color": "blue",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            706,
+            340
+          ]
+        },
+        {
+          "id": "synthetic-red-P",
+          "split": "holdout",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 13.14,
+          "raw": "{\n  \"reference_attribute\": \"color\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 857,
+            "total_tokens": 887,
+            "prompt_tokens_details": {
+              "cached_tokens": 17
+            }
+          },
+          "timings": {
+            "cache_n": 17,
+            "prompt_n": 840,
+            "prompt_ms": 11839.392,
+            "prompt_per_token_ms": 14.094514285714286,
+            "prompt_per_second": 70.94958930323449,
+            "predicted_n": 30,
+            "predicted_ms": 1287.215,
+            "predicted_per_token_ms": 44.38672413793103,
+            "predicted_per_second": 22.529258903912712
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                390,
+                90,
+                492,
+                222
+              ],
+              "center_px": [
+                407,
+                161
+              ],
+              "color": "blue",
+              "id": 0
+            },
+            {
+              "bbox": [
+                102,
+                108,
+                220,
+                240
+              ],
+              "center_px": [
+                119,
+                174
+              ],
+              "color": "red",
+              "id": 1
+            },
+            {
+              "bbox": [
+                687,
+                294,
+                789,
+                426
+              ],
+              "center_px": [
+                704,
+                365
+              ],
+              "color": "red",
+              "id": 2
+            },
+            {
+              "bbox": [
+                303,
+                316,
+                408,
+                447
+              ],
+              "center_px": [
+                354,
+                332
+              ],
+              "color": "green",
+              "id": 3
+            }
+          ],
+          "derived_center": [
+            704,
+            365
+          ]
+        },
+        {
+          "id": "synthetic-lowercase-k",
+          "split": "holdout",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 12.67,
+          "raw": "{\n  \"reference_attribute\": \"lowercase\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 31,
+            "prompt_tokens": 810,
+            "total_tokens": 841,
+            "prompt_tokens_details": {
+              "cached_tokens": 17
+            }
+          },
+          "timings": {
+            "cache_n": 17,
+            "prompt_n": 793,
+            "prompt_ms": 11455.29,
+            "prompt_per_token_ms": 14.445510718789409,
+            "prompt_per_second": 69.22565906231968,
+            "predicted_n": 31,
+            "predicted_ms": 1191.458,
+            "predicted_per_token_ms": 39.71526666666667,
+            "predicted_per_second": 25.179234181985432
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                87,
+                87,
+                206,
+                219
+              ],
+              "center_px": [
+                108,
+                157
+              ],
+              "color": "blue",
+              "id": 0
+            },
+            {
+              "bbox": [
+                708,
+                151,
+                828,
+                282
+              ],
+              "center_px": [
+                767,
+                221
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                413,
+                300,
+                501,
+                432
+              ],
+              "center_px": [
+                432,
+                381
+              ],
+              "color": "red",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            432,
+            381
+          ]
+        },
+        {
+          "id": "synthetic-yellow-square",
+          "split": "holdout",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 12.66,
+          "raw": "{\n  \"reference_attribute\": \"yellow\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 809,
+            "total_tokens": 839,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 791,
+            "prompt_ms": 11481.907,
+            "prompt_per_token_ms": 14.515685208596713,
+            "prompt_per_second": 68.89099519792313,
+            "predicted_n": 30,
+            "predicted_ms": 1163.574,
+            "predicted_per_token_ms": 40.12324137931035,
+            "predicted_per_second": 24.92321072832497
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                372,
+                72,
+                546,
+                246
+              ],
+              "center_px": [
+                458,
+                158
+              ],
+              "color": "orange",
+              "id": 0
+            },
+            {
+              "bbox": [
+                660,
+                87,
+                834,
+                261
+              ],
+              "center_px": [
+                746,
+                173
+              ],
+              "color": "cyan",
+              "id": 1
+            },
+            {
+              "bbox": [
+                75,
+                228,
+                249,
+                402
+              ],
+              "center_px": [
+                161,
+                314
+              ],
+              "color": "orange",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            161,
+            314
+          ]
+        },
+        {
+          "id": "synthetic-purple-8",
+          "split": "holdout",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 12.64,
+          "raw": "{\n  \"reference_attribute\": \"color\",\n  \"selected_id\": 1,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 821,
+            "total_tokens": 851,
+            "prompt_tokens_details": {
+              "cached_tokens": 17
+            }
+          },
+          "timings": {
+            "cache_n": 17,
+            "prompt_n": 804,
+            "prompt_ms": 11426.786,
+            "prompt_per_token_ms": 14.21242039800995,
+            "prompt_per_second": 70.360992145998,
+            "predicted_n": 30,
+            "predicted_ms": 1200.019,
+            "predicted_per_token_ms": 41.37996551724138,
+            "predicted_per_second": 24.166284033836128
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                90,
+                94,
+                195,
+                225
+              ],
+              "center_px": [
+                106,
+                156
+              ],
+              "color": "purple",
+              "id": 0
+            },
+            {
+              "bbox": [
+                663,
+                127,
+                750,
+                260
+              ],
+              "center_px": [
+                736,
+                219
+              ],
+              "color": "purple",
+              "id": 1
+            },
+            {
+              "bbox": [
+                306,
+                303,
+                393,
+                438
+              ],
+              "center_px": [
+                361,
+                364
+              ],
+              "color": "orange",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            736,
+            219
+          ]
+        },
+        {
+          "id": "real-green-F",
+          "split": "holdout",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            1200,
+            600
+          ],
+          "seconds": 19.27,
+          "raw": "{\n  \"reference_attribute\": \"color\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 1217,
+            "total_tokens": 1247,
+            "prompt_tokens_details": {
+              "cached_tokens": 17
+            }
+          },
+          "timings": {
+            "cache_n": 17,
+            "prompt_n": 1200,
+            "prompt_ms": 18002.417,
+            "prompt_per_token_ms": 15.002014166666667,
+            "prompt_per_second": 66.6577160166882,
+            "predicted_n": 30,
+            "predicted_ms": 1242.735,
+            "predicted_per_token_ms": 42.85293103448276,
+            "predicted_per_second": 23.33562666216048
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                170,
+                46,
+                278,
+                199
+              ],
+              "center_px": [
+                206,
+                130
+              ],
+              "color": "cyan",
+              "id": 0
+            },
+            {
+              "bbox": [
+                373,
+                118,
+                488,
+                275
+              ],
+              "center_px": [
+                430,
+                224
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                101,
+                197,
+                218,
+                352
+              ],
+              "center_px": [
+                165,
+                240
+              ],
+              "color": "cyan",
+              "id": 2
+            },
+            {
+              "bbox": [
+                673,
+                358,
+                762,
+                518
+              ],
+              "center_px": [
+                728,
+                398
+              ],
+              "color": "green",
+              "id": 3
+            },
+            {
+              "bbox": [
+                182,
+                362,
+                301,
+                522
+              ],
+              "center_px": [
+                212,
+                440
+              ],
+              "color": "green",
+              "id": 4
+            }
+          ],
+          "derived_center": [
+            165,
+            240
+          ]
+        }
+      ],
+      "command": [
+        "<llama>\\llama-server.EXE",
+        "-m",
+        "models\\qwen25vl-3b-vision-q8\\model.gguf",
+        "--mmproj",
+        "models\\qwen25vl-3b-vision-q8\\mmproj.gguf",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "-c",
+        "4096",
+        "--parallel",
+        "1",
+        "-t",
+        "4",
+        "--alias",
+        "local-vision",
+        "--verbosity",
+        "4",
+        "--device",
+        "none",
+        "-ngl",
+        "0",
+        "--no-mmproj-offload",
+        "--no-op-offload"
+      ],
+      "nvidia_baseline": {
+        "gpu_csv": "0, 2257, 16",
+        "server_vram_mib": null,
+        "server_pid": null,
+        "error": ""
+      },
+      "resource_samples": [
+        {
+          "elapsed_seconds": 0.0,
+          "phase": "load",
+          "rss_mb": 2.0,
+          "gpu_csv": "0, 2257, 16",
+          "server_vram_mib": null,
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 1.141,
+          "phase": "load",
+          "rss_mb": 1675.8,
+          "gpu_csv": "0, 2504, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 2.281,
+          "phase": "load",
+          "rss_mb": 4385.1,
+          "gpu_csv": "0, 2491, 5",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 3.438,
+          "phase": "blue-cube",
+          "rss_mb": 4456.4,
+          "gpu_csv": "0, 2491, 5",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 4.578,
+          "phase": "blue-cube",
+          "rss_mb": 4456.4,
+          "gpu_csv": "0, 2489, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 5.734,
+          "phase": "blue-cube",
+          "rss_mb": 4685.2,
+          "gpu_csv": "0, 2471, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 6.875,
+          "phase": "blue-cube",
+          "rss_mb": 4685.2,
+          "gpu_csv": "0, 2470, 4",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 8.0,
+          "phase": "blue-cube",
+          "rss_mb": 4685.2,
+          "gpu_csv": "0, 2470, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 9.141,
+          "phase": "blue-cube",
+          "rss_mb": 4685.2,
+          "gpu_csv": "0, 2466, 5",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 10.281,
+          "phase": "blue-cube",
+          "rss_mb": 4685.2,
+          "gpu_csv": "0, 2466, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 11.422,
+          "phase": "blue-cube",
+          "rss_mb": 4685.2,
+          "gpu_csv": "0, 2466, 4",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 12.547,
+          "phase": "blue-cube",
+          "rss_mb": 4782.3,
+          "gpu_csv": "0, 2466, 5",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 13.688,
+          "phase": "blue-cube",
+          "rss_mb": 4782.3,
+          "gpu_csv": "0, 2466, 5",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 14.844,
+          "phase": "blue-cube",
+          "rss_mb": 4782.3,
+          "gpu_csv": "0, 2466, 8",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 15.984,
+          "phase": "blue-cube",
+          "rss_mb": 4780.9,
+          "gpu_csv": "0, 2466, 3",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 17.141,
+          "phase": "number-orientation",
+          "rss_mb": 4815.5,
+          "gpu_csv": "0, 2466, 4",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 18.297,
+          "phase": "number-orientation",
+          "rss_mb": 4836.5,
+          "gpu_csv": "0, 2466, 6",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 19.422,
+          "phase": "number-orientation",
+          "rss_mb": 4825.2,
+          "gpu_csv": "0, 2466, 3",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 20.563,
+          "phase": "number-orientation",
+          "rss_mb": 4825.2,
+          "gpu_csv": "0, 2466, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 21.703,
+          "phase": "number-orientation",
+          "rss_mb": 4825.2,
+          "gpu_csv": "0, 2466, 4",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 22.844,
+          "phase": "number-orientation",
+          "rss_mb": 4825.2,
+          "gpu_csv": "0, 2466, 3",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 23.984,
+          "phase": "number-orientation",
+          "rss_mb": 4825.2,
+          "gpu_csv": "0, 2485, 5",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 25.109,
+          "phase": "number-orientation",
+          "rss_mb": 4825.2,
+          "gpu_csv": "0, 2450, 5",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 26.25,
+          "phase": "number-orientation",
+          "rss_mb": 4824.0,
+          "gpu_csv": "0, 2458, 8",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 27.391,
+          "phase": "number-orientation",
+          "rss_mb": 4824.0,
+          "gpu_csv": "0, 2478, 9",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 28.547,
+          "phase": "number-orientation",
+          "rss_mb": 4824.0,
+          "gpu_csv": "0, 2481, 5",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 29.688,
+          "phase": "number-orientation",
+          "rss_mb": 4821.8,
+          "gpu_csv": "0, 2484, 5",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 30.875,
+          "phase": "sideways-S",
+          "rss_mb": 4848.4,
+          "gpu_csv": "0, 2472, 8",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 32.016,
+          "phase": "sideways-S",
+          "rss_mb": 4858.1,
+          "gpu_csv": "0, 2466, 4",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 33.156,
+          "phase": "sideways-S",
+          "rss_mb": 4858.1,
+          "gpu_csv": "0, 2520, 8",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 34.313,
+          "phase": "sideways-S",
+          "rss_mb": 4858.1,
+          "gpu_csv": "0, 2522, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 35.438,
+          "phase": "sideways-S",
+          "rss_mb": 4858.1,
+          "gpu_csv": "0, 2509, 8",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 36.594,
+          "phase": "sideways-S",
+          "rss_mb": 4858.1,
+          "gpu_csv": "0, 2517, 4",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 37.719,
+          "phase": "sideways-S",
+          "rss_mb": 4858.1,
+          "gpu_csv": "0, 2516, 7",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 38.844,
+          "phase": "sideways-S",
+          "rss_mb": 4858.1,
+          "gpu_csv": "0, 2551, 5",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 40.0,
+          "phase": "sideways-S",
+          "rss_mb": 4856.9,
+          "gpu_csv": "0, 2550, 9",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 41.141,
+          "phase": "sideways-S",
+          "rss_mb": 4856.9,
+          "gpu_csv": "0, 2547, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 42.266,
+          "phase": "sideways-S",
+          "rss_mb": 4856.9,
+          "gpu_csv": "0, 2553, 6",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 43.406,
+          "phase": "sideways-S",
+          "rss_mb": 4854.6,
+          "gpu_csv": "0, 2578, 6",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 44.594,
+          "phase": "synthetic-green-F",
+          "rss_mb": 4882.0,
+          "gpu_csv": "0, 2565, 8",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 45.734,
+          "phase": "synthetic-green-F",
+          "rss_mb": 4891.7,
+          "gpu_csv": "0, 2544, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 46.875,
+          "phase": "synthetic-green-F",
+          "rss_mb": 4891.7,
+          "gpu_csv": "0, 2515, 4",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 48.016,
+          "phase": "synthetic-green-F",
+          "rss_mb": 4891.7,
+          "gpu_csv": "0, 2493, 8",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 49.172,
+          "phase": "synthetic-green-F",
+          "rss_mb": 4891.7,
+          "gpu_csv": "0, 2447, 11",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 50.297,
+          "phase": "synthetic-green-F",
+          "rss_mb": 4891.7,
+          "gpu_csv": "0, 2438, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 51.453,
+          "phase": "synthetic-green-F",
+          "rss_mb": 4891.7,
+          "gpu_csv": "0, 2443, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 52.609,
+          "phase": "synthetic-green-F",
+          "rss_mb": 4891.7,
+          "gpu_csv": "0, 2442, 8",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 53.719,
+          "phase": "synthetic-green-F",
+          "rss_mb": 4890.5,
+          "gpu_csv": "0, 2440, 8",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 54.859,
+          "phase": "synthetic-green-F",
+          "rss_mb": 4890.5,
+          "gpu_csv": "0, 2439, 8",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 56.0,
+          "phase": "synthetic-green-F",
+          "rss_mb": 4888.3,
+          "gpu_csv": "0, 2472, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 57.188,
+          "phase": "synthetic-green-F",
+          "rss_mb": 4878.6,
+          "gpu_csv": "0, 2450, 8",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 58.328,
+          "phase": "synthetic-blue-cube",
+          "rss_mb": 4922.9,
+          "gpu_csv": "0, 2501, 5",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 59.453,
+          "phase": "synthetic-blue-cube",
+          "rss_mb": 4922.9,
+          "gpu_csv": "0, 2488, 12",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 60.578,
+          "phase": "synthetic-blue-cube",
+          "rss_mb": 4922.9,
+          "gpu_csv": "0, 2505, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 61.719,
+          "phase": "synthetic-blue-cube",
+          "rss_mb": 4922.9,
+          "gpu_csv": "0, 2538, 6",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 62.953,
+          "phase": "synthetic-blue-cube",
+          "rss_mb": 4922.9,
+          "gpu_csv": "0, 2540, 3",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 64.094,
+          "phase": "synthetic-blue-cube",
+          "rss_mb": 4922.9,
+          "gpu_csv": "0, 2534, 3",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 65.234,
+          "phase": "synthetic-blue-cube",
+          "rss_mb": 4922.9,
+          "gpu_csv": "0, 2533, 9",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 66.375,
+          "phase": "synthetic-blue-cube",
+          "rss_mb": 4921.7,
+          "gpu_csv": "0, 2533, 5",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 67.531,
+          "phase": "synthetic-blue-cube",
+          "rss_mb": 4921.7,
+          "gpu_csv": "0, 2541, 5",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 68.688,
+          "phase": "synthetic-blue-cube",
+          "rss_mb": 4921.7,
+          "gpu_csv": "0, 2525, 5",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 69.844,
+          "phase": "synthetic-blue-cube",
+          "rss_mb": 4919.4,
+          "gpu_csv": "0, 2510, 10",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 71.0,
+          "phase": "synthetic-red-P",
+          "rss_mb": 4942.7,
+          "gpu_csv": "0, 2508, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 72.125,
+          "phase": "synthetic-red-P",
+          "rss_mb": 4942.7,
+          "gpu_csv": "0, 2495, 5",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 73.266,
+          "phase": "synthetic-red-P",
+          "rss_mb": 4952.4,
+          "gpu_csv": "0, 2490, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 74.391,
+          "phase": "synthetic-red-P",
+          "rss_mb": 4952.4,
+          "gpu_csv": "0, 2491, 3",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 75.547,
+          "phase": "synthetic-red-P",
+          "rss_mb": 4952.4,
+          "gpu_csv": "0, 2491, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 76.672,
+          "phase": "synthetic-red-P",
+          "rss_mb": 4952.4,
+          "gpu_csv": "0, 2491, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 77.813,
+          "phase": "synthetic-red-P",
+          "rss_mb": 4952.4,
+          "gpu_csv": "0, 2491, 3",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 78.953,
+          "phase": "synthetic-red-P",
+          "rss_mb": 4952.4,
+          "gpu_csv": "0, 2491, 3",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 80.094,
+          "phase": "synthetic-red-P",
+          "rss_mb": 4951.2,
+          "gpu_csv": "0, 2509, 10",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 81.25,
+          "phase": "synthetic-red-P",
+          "rss_mb": 4951.2,
+          "gpu_csv": "0, 2438, 6",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 82.391,
+          "phase": "synthetic-red-P",
+          "rss_mb": 4951.2,
+          "gpu_csv": "0, 2461, 9",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 83.547,
+          "phase": "synthetic-red-P",
+          "rss_mb": 4949.0,
+          "gpu_csv": "0, 2447, 14",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 84.75,
+          "phase": "synthetic-lowercase-k",
+          "rss_mb": 4973.9,
+          "gpu_csv": "0, 2498, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 85.906,
+          "phase": "synthetic-lowercase-k",
+          "rss_mb": 4983.6,
+          "gpu_csv": "0, 2498, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 87.047,
+          "phase": "synthetic-lowercase-k",
+          "rss_mb": 4983.6,
+          "gpu_csv": "0, 2490, 4",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 88.188,
+          "phase": "synthetic-lowercase-k",
+          "rss_mb": 4983.6,
+          "gpu_csv": "0, 2469, 7",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 89.359,
+          "phase": "synthetic-lowercase-k",
+          "rss_mb": 4983.6,
+          "gpu_csv": "0, 2483, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 90.5,
+          "phase": "synthetic-lowercase-k",
+          "rss_mb": 4983.6,
+          "gpu_csv": "0, 2464, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 91.641,
+          "phase": "synthetic-lowercase-k",
+          "rss_mb": 4983.6,
+          "gpu_csv": "0, 2436, 8",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 92.766,
+          "phase": "synthetic-lowercase-k",
+          "rss_mb": 4982.4,
+          "gpu_csv": "0, 2435, 6",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 93.922,
+          "phase": "synthetic-lowercase-k",
+          "rss_mb": 4982.4,
+          "gpu_csv": "0, 2457, 7",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 95.063,
+          "phase": "synthetic-lowercase-k",
+          "rss_mb": 4982.4,
+          "gpu_csv": "0, 2457, 9",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 96.203,
+          "phase": "synthetic-lowercase-k",
+          "rss_mb": 4980.1,
+          "gpu_csv": "0, 2457, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 97.359,
+          "phase": "synthetic-yellow-square",
+          "rss_mb": 5003.4,
+          "gpu_csv": "0, 2449, 8",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 98.516,
+          "phase": "synthetic-yellow-square",
+          "rss_mb": 5013.1,
+          "gpu_csv": "0, 2449, 7",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 99.641,
+          "phase": "synthetic-yellow-square",
+          "rss_mb": 5013.1,
+          "gpu_csv": "0, 2449, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 100.766,
+          "phase": "synthetic-yellow-square",
+          "rss_mb": 5013.1,
+          "gpu_csv": "0, 2449, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 101.906,
+          "phase": "synthetic-yellow-square",
+          "rss_mb": 5013.1,
+          "gpu_csv": "0, 2449, 5",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 103.063,
+          "phase": "synthetic-yellow-square",
+          "rss_mb": 5013.1,
+          "gpu_csv": "0, 2425, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 104.188,
+          "phase": "synthetic-yellow-square",
+          "rss_mb": 5013.1,
+          "gpu_csv": "0, 2433, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 105.313,
+          "phase": "synthetic-yellow-square",
+          "rss_mb": 5012.0,
+          "gpu_csv": "0, 2425, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 106.438,
+          "phase": "synthetic-yellow-square",
+          "rss_mb": 5012.0,
+          "gpu_csv": "0, 2429, 6",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 107.578,
+          "phase": "synthetic-yellow-square",
+          "rss_mb": 5012.0,
+          "gpu_csv": "0, 2434, 7",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 108.719,
+          "phase": "synthetic-yellow-square",
+          "rss_mb": 5009.7,
+          "gpu_csv": "0, 2438, 6",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 109.891,
+          "phase": "synthetic-purple-8",
+          "rss_mb": 5032.9,
+          "gpu_csv": "0, 2438, 6",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 111.031,
+          "phase": "synthetic-purple-8",
+          "rss_mb": 5042.6,
+          "gpu_csv": "0, 2438, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 112.156,
+          "phase": "synthetic-purple-8",
+          "rss_mb": 5042.6,
+          "gpu_csv": "0, 2433, 6",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 113.328,
+          "phase": "synthetic-purple-8",
+          "rss_mb": 5042.6,
+          "gpu_csv": "0, 2433, 8",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 114.453,
+          "phase": "synthetic-purple-8",
+          "rss_mb": 5042.6,
+          "gpu_csv": "0, 2433, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 115.594,
+          "phase": "synthetic-purple-8",
+          "rss_mb": 5042.6,
+          "gpu_csv": "0, 2424, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 116.75,
+          "phase": "synthetic-purple-8",
+          "rss_mb": 5042.6,
+          "gpu_csv": "0, 2424, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 117.859,
+          "phase": "synthetic-purple-8",
+          "rss_mb": 5041.4,
+          "gpu_csv": "0, 2423, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 119.016,
+          "phase": "synthetic-purple-8",
+          "rss_mb": 5041.4,
+          "gpu_csv": "0, 2419, 4",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 120.141,
+          "phase": "synthetic-purple-8",
+          "rss_mb": 5041.4,
+          "gpu_csv": "0, 2419, 5",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 121.281,
+          "phase": "synthetic-purple-8",
+          "rss_mb": 5039.2,
+          "gpu_csv": "0, 2419, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 122.453,
+          "phase": "real-green-F",
+          "rss_mb": 5065.8,
+          "gpu_csv": "0, 2419, 9",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 123.578,
+          "phase": "real-green-F",
+          "rss_mb": 5065.9,
+          "gpu_csv": "0, 2419, 9",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 124.719,
+          "phase": "real-green-F",
+          "rss_mb": 5140.8,
+          "gpu_csv": "0, 2419, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 125.844,
+          "phase": "real-green-F",
+          "rss_mb": 5140.8,
+          "gpu_csv": "0, 2419, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 126.984,
+          "phase": "real-green-F",
+          "rss_mb": 5140.8,
+          "gpu_csv": "0, 2419, 6",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 128.094,
+          "phase": "real-green-F",
+          "rss_mb": 5140.8,
+          "gpu_csv": "0, 2433, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 129.25,
+          "phase": "real-green-F",
+          "rss_mb": 5140.8,
+          "gpu_csv": "0, 2433, 2",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 130.375,
+          "phase": "real-green-F",
+          "rss_mb": 5140.8,
+          "gpu_csv": "0, 2432, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 131.531,
+          "phase": "real-green-F",
+          "rss_mb": 5140.8,
+          "gpu_csv": "0, 2432, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 132.672,
+          "phase": "real-green-F",
+          "rss_mb": 5140.8,
+          "gpu_csv": "0, 2454, 6",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 133.813,
+          "phase": "real-green-F",
+          "rss_mb": 5140.8,
+          "gpu_csv": "0, 2453, 1",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 134.953,
+          "phase": "real-green-F",
+          "rss_mb": 5209.4,
+          "gpu_csv": "0, 2471, 9",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 136.094,
+          "phase": "real-green-F",
+          "rss_mb": 5208.3,
+          "gpu_csv": "0, 2470, 8",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 137.234,
+          "phase": "real-green-F",
+          "rss_mb": 5208.3,
+          "gpu_csv": "0, 2460, 9",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 138.375,
+          "phase": "real-green-F",
+          "rss_mb": 5208.3,
+          "gpu_csv": "0, 2458, 8",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 139.516,
+          "phase": "real-green-F",
+          "rss_mb": 5208.3,
+          "gpu_csv": "0, 2467, 3",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 140.656,
+          "phase": "real-green-F",
+          "rss_mb": 5203.0,
+          "gpu_csv": "0, 2468, 3",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 33248,
+          "error": ""
+        }
+      ],
+      "load_seconds": 2.34,
+      "status": "completed",
+      "peak_rss_mb": 5209.4,
+      "memory_breakdown_lines": [
+        "0.00.383.416 I common_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   model   context   compute    unaccounted |",
+        "0.00.383.421 I common_memory_breakdown_print: |   - Host               |                  797 =   569 +     144 +      84                |",
+        "0.00.383.421 I common_memory_breakdown_print: |   - CPU_REPACK         |                 1265 =  1265 +       0 +       0                |"
+      ]
+    },
+    {
+      "backend": "cuda",
+      "cases": [
+        {
+          "id": "blue-cube",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 0.34,
+          "raw": "{\n  \"reference_attribute\": \"blue\",\n  \"selected_id\": 4,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 981,
+            "total_tokens": 1011,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 981,
+            "prompt_ms": 197.915,
+            "prompt_per_token_ms": 0.20174821610601426,
+            "prompt_per_second": 4956.673319354268,
+            "predicted_n": 30,
+            "predicted_ms": 140.211,
+            "predicted_per_token_ms": 4.834862068965518,
+            "predicted_per_second": 206.83113307800386
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                247,
+                28,
+                336,
+                156
+              ],
+              "center_px": [
+                317,
+                131
+              ],
+              "color": "gray",
+              "id": 0
+            },
+            {
+              "bbox": [
+                264,
+                52,
+                293,
+                91
+              ],
+              "center_px": [
+                276,
+                70
+              ],
+              "color": "gray",
+              "id": 1
+            },
+            {
+              "bbox": [
+                387,
+                96,
+                492,
+                227
+              ],
+              "center_px": [
+                428,
+                198
+              ],
+              "color": "gray",
+              "id": 2
+            },
+            {
+              "bbox": [
+                90,
+                142,
+                175,
+                275
+              ],
+              "center_px": [
+                106,
+                191
+              ],
+              "color": "yellow",
+              "id": 3
+            },
+            {
+              "bbox": [
+                750,
+                177,
+                856,
+                310
+              ],
+              "center_px": [
+                802,
+                229
+              ],
+              "color": "blue",
+              "id": 4
+            },
+            {
+              "bbox": [
+                559,
+                243,
+                665,
+                374
+              ],
+              "center_px": [
+                611,
+                295
+              ],
+              "color": "green",
+              "id": 5
+            },
+            {
+              "bbox": [
+                86,
+                288,
+                214,
+                424
+              ],
+              "center_px": [
+                184,
+                353
+              ],
+              "color": "yellow",
+              "id": 6
+            },
+            {
+              "bbox": [
+                266,
+                293,
+                371,
+                426
+              ],
+              "center_px": [
+                322,
+                361
+              ],
+              "color": "orange",
+              "id": 7
+            }
+          ],
+          "derived_center": [
+            802,
+            229
+          ]
+        },
+        {
+          "id": "number-orientation",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 0.31,
+          "raw": "{\n  \"reference_attribute\": \"3D facing direction\",\n  \"selected_id\": 0,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 33,
+            "prompt_tokens": 897,
+            "total_tokens": 930,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 879,
+            "prompt_ms": 141.747,
+            "prompt_per_token_ms": 0.16125938566552903,
+            "prompt_per_second": 6201.189443162818,
+            "predicted_n": 33,
+            "predicted_ms": 147.025,
+            "predicted_per_token_ms": 4.59453125,
+            "predicted_per_second": 217.65005951368815
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                186,
+                31,
+                285,
+                158
+              ],
+              "center_px": [
+                266,
+                53
+              ],
+              "color": "gray",
+              "id": 0
+            },
+            {
+              "bbox": [
+                390,
+                90,
+                459,
+                219
+              ],
+              "center_px": [
+                408,
+                135
+              ],
+              "color": "blue",
+              "id": 1
+            },
+            {
+              "bbox": [
+                263,
+                144,
+                337,
+                275
+              ],
+              "center_px": [
+                311,
+                179
+              ],
+              "color": "green",
+              "id": 2
+            },
+            {
+              "bbox": [
+                123,
+                234,
+                217,
+                365
+              ],
+              "center_px": [
+                165,
+                286
+              ],
+              "color": "red",
+              "id": 3
+            },
+            {
+              "bbox": [
+                566,
+                267,
+                590,
+                390
+              ],
+              "center_px": [
+                578,
+                318
+              ],
+              "color": "gray",
+              "id": 4
+            }
+          ],
+          "derived_center": [
+            266,
+            53
+          ]
+        },
+        {
+          "id": "sideways-S",
+          "split": "calibration",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 0.3,
+          "raw": "{\n  \"reference_attribute\": \"side\",\n  \"selected_id\": 5,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 919,
+            "total_tokens": 949,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 901,
+            "prompt_ms": 145.428,
+            "prompt_per_token_ms": 0.16140732519422862,
+            "prompt_per_second": 6195.505679786561,
+            "predicted_n": 30,
+            "predicted_ms": 130.538,
+            "predicted_per_token_ms": 4.501310344827586,
+            "predicted_per_second": 222.1575326724785
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                276,
+                55,
+                383,
+                181
+              ],
+              "center_px": [
+                326,
+                166
+              ],
+              "color": "red",
+              "id": 0
+            },
+            {
+              "bbox": [
+                133,
+                103,
+                316,
+                348
+              ],
+              "center_px": [
+                284,
+                273
+              ],
+              "color": "red",
+              "id": 1
+            },
+            {
+              "bbox": [
+                697,
+                122,
+                822,
+                218
+              ],
+              "center_px": [
+                760,
+                142
+              ],
+              "color": "gray",
+              "id": 2
+            },
+            {
+              "bbox": [
+                595,
+                249,
+                693,
+                379
+              ],
+              "center_px": [
+                647,
+                336
+              ],
+              "color": "red",
+              "id": 3
+            },
+            {
+              "bbox": [
+                745,
+                264,
+                799,
+                392
+              ],
+              "center_px": [
+                769,
+                300
+              ],
+              "color": "yellow",
+              "id": 4
+            },
+            {
+              "bbox": [
+                361,
+                277,
+                474,
+                407
+              ],
+              "center_px": [
+                433,
+                339
+              ],
+              "color": "red",
+              "id": 5
+            }
+          ],
+          "derived_center": [
+            433,
+            339
+          ]
+        },
+        {
+          "id": "synthetic-green-F",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 0.28,
+          "raw": "{\n  \"reference_attribute\": \"color\",\n  \"selected_id\": 3,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 858,
+            "total_tokens": 888,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 840,
+            "prompt_ms": 140.761,
+            "prompt_per_token_ms": 0.16757261904761905,
+            "prompt_per_second": 5967.562037780351,
+            "predicted_n": 30,
+            "predicted_ms": 130.223,
+            "predicted_per_token_ms": 4.49044827586207,
+            "predicted_per_second": 222.69491564470175
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                108,
+                102,
+                199,
+                234
+              ],
+              "center_px": [
+                125,
+                167
+              ],
+              "color": "cyan",
+              "id": 0
+            },
+            {
+              "bbox": [
+                384,
+                107,
+                490,
+                243
+              ],
+              "center_px": [
+                406,
+                156
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                687,
+                300,
+                792,
+                432
+              ],
+              "center_px": [
+                738,
+                317
+              ],
+              "color": "orange",
+              "id": 2
+            },
+            {
+              "bbox": [
+                174,
+                301,
+                265,
+                432
+              ],
+              "center_px": [
+                191,
+                365
+              ],
+              "color": "green",
+              "id": 3
+            }
+          ],
+          "derived_center": [
+            191,
+            365
+          ]
+        },
+        {
+          "id": "synthetic-blue-cube",
+          "split": "calibration",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 0.28,
+          "raw": "{\n  \"reference_attribute\": \"blue\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 810,
+            "total_tokens": 840,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 792,
+            "prompt_ms": 129.532,
+            "prompt_per_token_ms": 0.16355050505050506,
+            "prompt_per_second": 6114.31924157737,
+            "predicted_n": 30,
+            "predicted_ms": 130.906,
+            "predicted_per_token_ms": 4.514,
+            "predicted_per_second": 221.53300841825433
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                90,
+                90,
+                255,
+                255
+              ],
+              "center_px": [
+                172,
+                172
+              ],
+              "color": "red",
+              "id": 0
+            },
+            {
+              "bbox": [
+                378,
+                117,
+                543,
+                282
+              ],
+              "center_px": [
+                460,
+                199
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                624,
+                257,
+                789,
+                424
+              ],
+              "center_px": [
+                706,
+                340
+              ],
+              "color": "blue",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            706,
+            340
+          ]
+        },
+        {
+          "id": "synthetic-red-P",
+          "split": "holdout",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 0.3,
+          "raw": "{\n  \"reference_attribute\": \"color\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 857,
+            "total_tokens": 887,
+            "prompt_tokens_details": {
+              "cached_tokens": 17
+            }
+          },
+          "timings": {
+            "cache_n": 17,
+            "prompt_n": 840,
+            "prompt_ms": 130.492,
+            "prompt_per_token_ms": 0.15534761904761904,
+            "prompt_per_second": 6437.176225362475,
+            "predicted_n": 30,
+            "predicted_ms": 137.119,
+            "predicted_per_token_ms": 4.728241379310345,
+            "predicted_per_second": 211.49512467272953
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                390,
+                90,
+                492,
+                222
+              ],
+              "center_px": [
+                407,
+                161
+              ],
+              "color": "blue",
+              "id": 0
+            },
+            {
+              "bbox": [
+                102,
+                108,
+                220,
+                240
+              ],
+              "center_px": [
+                119,
+                174
+              ],
+              "color": "red",
+              "id": 1
+            },
+            {
+              "bbox": [
+                687,
+                294,
+                789,
+                426
+              ],
+              "center_px": [
+                704,
+                365
+              ],
+              "color": "red",
+              "id": 2
+            },
+            {
+              "bbox": [
+                303,
+                316,
+                408,
+                447
+              ],
+              "center_px": [
+                354,
+                332
+              ],
+              "color": "green",
+              "id": 3
+            }
+          ],
+          "derived_center": [
+            704,
+            365
+          ]
+        },
+        {
+          "id": "synthetic-lowercase-k",
+          "split": "holdout",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 0.31,
+          "raw": "{\n  \"reference_attribute\": \"lowercase\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 31,
+            "prompt_tokens": 810,
+            "total_tokens": 841,
+            "prompt_tokens_details": {
+              "cached_tokens": 17
+            }
+          },
+          "timings": {
+            "cache_n": 17,
+            "prompt_n": 793,
+            "prompt_ms": 154.701,
+            "prompt_per_token_ms": 0.19508322824716268,
+            "prompt_per_second": 5126.017284956141,
+            "predicted_n": 31,
+            "predicted_ms": 146.78,
+            "predicted_per_token_ms": 4.892666666666667,
+            "predicted_per_second": 204.38751873552258
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                87,
+                87,
+                206,
+                219
+              ],
+              "center_px": [
+                108,
+                157
+              ],
+              "color": "blue",
+              "id": 0
+            },
+            {
+              "bbox": [
+                708,
+                151,
+                828,
+                282
+              ],
+              "center_px": [
+                767,
+                221
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                413,
+                300,
+                501,
+                432
+              ],
+              "center_px": [
+                432,
+                381
+              ],
+              "color": "red",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            432,
+            381
+          ]
+        },
+        {
+          "id": "synthetic-yellow-square",
+          "split": "holdout",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 0.28,
+          "raw": "{\n  \"reference_attribute\": \"yellow\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 809,
+            "total_tokens": 839,
+            "prompt_tokens_details": {
+              "cached_tokens": 18
+            }
+          },
+          "timings": {
+            "cache_n": 18,
+            "prompt_n": 791,
+            "prompt_ms": 133.142,
+            "prompt_per_token_ms": 0.16832111251580278,
+            "prompt_per_second": 5941.02537140797,
+            "predicted_n": 30,
+            "predicted_ms": 130.978,
+            "predicted_per_token_ms": 4.51648275862069,
+            "predicted_per_second": 221.41122936676388
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                372,
+                72,
+                546,
+                246
+              ],
+              "center_px": [
+                458,
+                158
+              ],
+              "color": "orange",
+              "id": 0
+            },
+            {
+              "bbox": [
+                660,
+                87,
+                834,
+                261
+              ],
+              "center_px": [
+                746,
+                173
+              ],
+              "color": "cyan",
+              "id": 1
+            },
+            {
+              "bbox": [
+                75,
+                228,
+                249,
+                402
+              ],
+              "center_px": [
+                161,
+                314
+              ],
+              "color": "orange",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            161,
+            314
+          ]
+        },
+        {
+          "id": "synthetic-purple-8",
+          "split": "holdout",
+          "synthetic": true,
+          "repeat": 0,
+          "image_size": [
+            960,
+            480
+          ],
+          "seconds": 0.3,
+          "raw": "{\n  \"reference_attribute\": \"color\",\n  \"selected_id\": 1,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 821,
+            "total_tokens": 851,
+            "prompt_tokens_details": {
+              "cached_tokens": 17
+            }
+          },
+          "timings": {
+            "cache_n": 17,
+            "prompt_n": 804,
+            "prompt_ms": 132.085,
+            "prompt_per_token_ms": 0.16428482587064677,
+            "prompt_per_second": 6086.98943861907,
+            "predicted_n": 30,
+            "predicted_ms": 142.303,
+            "predicted_per_token_ms": 4.907,
+            "predicted_per_second": 203.79050336254332
+          },
+          "point_inside_expected_box": true,
+          "image_candidates": [
+            {
+              "bbox": [
+                90,
+                94,
+                195,
+                225
+              ],
+              "center_px": [
+                106,
+                156
+              ],
+              "color": "purple",
+              "id": 0
+            },
+            {
+              "bbox": [
+                663,
+                127,
+                750,
+                260
+              ],
+              "center_px": [
+                736,
+                219
+              ],
+              "color": "purple",
+              "id": 1
+            },
+            {
+              "bbox": [
+                306,
+                303,
+                393,
+                438
+              ],
+              "center_px": [
+                361,
+                364
+              ],
+              "color": "orange",
+              "id": 2
+            }
+          ],
+          "derived_center": [
+            736,
+            219
+          ]
+        },
+        {
+          "id": "real-green-F",
+          "split": "holdout",
+          "synthetic": false,
+          "repeat": 0,
+          "image_size": [
+            1200,
+            600
+          ],
+          "seconds": 0.34,
+          "raw": "{\n  \"reference_attribute\": \"color\",\n  \"selected_id\": 2,\n  \"uncertain\": false\n}",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 1217,
+            "total_tokens": 1247,
+            "prompt_tokens_details": {
+              "cached_tokens": 17
+            }
+          },
+          "timings": {
+            "cache_n": 17,
+            "prompt_n": 1200,
+            "prompt_ms": 198.579,
+            "prompt_per_token_ms": 0.1654825,
+            "prompt_per_second": 6042.935053555511,
+            "predicted_n": 30,
+            "predicted_ms": 133.053,
+            "predicted_per_token_ms": 4.588034482758621,
+            "predicted_per_second": 217.95825723583835
+          },
+          "point_inside_expected_box": false,
+          "image_candidates": [
+            {
+              "bbox": [
+                170,
+                46,
+                278,
+                199
+              ],
+              "center_px": [
+                206,
+                130
+              ],
+              "color": "cyan",
+              "id": 0
+            },
+            {
+              "bbox": [
+                373,
+                118,
+                488,
+                275
+              ],
+              "center_px": [
+                430,
+                224
+              ],
+              "color": "green",
+              "id": 1
+            },
+            {
+              "bbox": [
+                101,
+                197,
+                218,
+                352
+              ],
+              "center_px": [
+                165,
+                240
+              ],
+              "color": "cyan",
+              "id": 2
+            },
+            {
+              "bbox": [
+                673,
+                358,
+                762,
+                518
+              ],
+              "center_px": [
+                728,
+                398
+              ],
+              "color": "green",
+              "id": 3
+            },
+            {
+              "bbox": [
+                182,
+                362,
+                301,
+                522
+              ],
+              "center_px": [
+                212,
+                440
+              ],
+              "color": "green",
+              "id": 4
+            }
+          ],
+          "derived_center": [
+            165,
+            240
+          ]
+        }
+      ],
+      "command": [
+        "<llama>\\llama-server.EXE",
+        "-m",
+        "models\\qwen25vl-3b-vision-q8\\model.gguf",
+        "--mmproj",
+        "models\\qwen25vl-3b-vision-q8\\mmproj.gguf",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "-c",
+        "4096",
+        "--parallel",
+        "1",
+        "-t",
+        "4",
+        "--alias",
+        "local-vision",
+        "--verbosity",
+        "4",
+        "--device",
+        "CUDA0",
+        "-ngl",
+        "99"
+      ],
+      "nvidia_baseline": {
+        "gpu_csv": "0, 2229, 2",
+        "server_vram_mib": null,
+        "server_pid": null,
+        "error": ""
+      },
+      "resource_samples": [
+        {
+          "elapsed_seconds": 0.0,
+          "phase": "load",
+          "rss_mb": 2.0,
+          "gpu_csv": "0, 2237, 5",
+          "server_vram_mib": null,
+          "server_pid": 13164,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 1.125,
+          "phase": "load",
+          "rss_mb": 329.0,
+          "gpu_csv": "0, 2529, 32",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 13164,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 2.219,
+          "phase": "load",
+          "rss_mb": 2230.5,
+          "gpu_csv": "0, 5424, 18",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 13164,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 3.359,
+          "phase": "sideways-S",
+          "rss_mb": 2476.7,
+          "gpu_csv": "0, 6182, 89",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 13164,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 4.469,
+          "phase": "synthetic-red-P",
+          "rss_mb": 2567.4,
+          "gpu_csv": "0, 6165, 91",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 13164,
+          "error": ""
+        },
+        {
+          "elapsed_seconds": 5.688,
+          "phase": "real-green-F",
+          "rss_mb": 2725.3,
+          "gpu_csv": "0, 6181, 93",
+          "server_vram_mib": "[N/A]",
+          "server_pid": 13164,
+          "error": ""
+        }
+      ],
+      "load_seconds": 2.56,
+      "status": "completed",
+      "peak_rss_mb": 2731.7,
+      "memory_breakdown_lines": [
+        "0.01.013.112 I common_memory_breakdown_print: | memory breakdown [MiB]     | total    free    self   model   context   compute    unaccounted |",
+        "0.01.013.117 I common_memory_breakdown_print: |   - CUDA0 (RTX 4080 SUPER) | 16375 = 15031 + (2059 =  1834 +     144 +      80) +        -714 |",
+        "0.01.013.117 I common_memory_breakdown_print: |   - Host                   |                   255 =   243 +       0 +      12                |"
+      ]
+    }
+  ]
+}

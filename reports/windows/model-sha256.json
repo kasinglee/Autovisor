@@ -1,0 +1,12 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "D02FE9B69AD8CADBBD228E387667AF66612C44BED29FFC8EB1E7CAF9AC486C12",
+    "Path": "model.gguf"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "980C9B2F78C04E6CFF93D277ADA09E768394F112D75DB3B4E9DEA8A69F9FB904",
+    "Path": "mmproj.gguf"
+  }
+]

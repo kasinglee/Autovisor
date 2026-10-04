@@ -1,0 +1,22 @@
+windows-q4-baseline cpu ready
+windows-q4-baseline cpu blue-cube 12.02 True
+windows-q4-baseline cpu number-orientation 12.02 False
+windows-q4-baseline cpu sideways-S 12.3 False
+windows-q4-baseline cpu synthetic-green-F 12.11 False
+windows-q4-baseline cpu synthetic-blue-cube 11.86 True
+windows-q4-baseline cpu synthetic-red-P 11.7 False
+windows-q4-baseline cpu synthetic-lowercase-k 11.78 True
+windows-q4-baseline cpu synthetic-yellow-square 12.09 True
+windows-q4-baseline cpu synthetic-purple-8 11.75 True
+windows-q4-baseline cpu real-green-F 18.47 False
+windows-q4-baseline cuda ready
+windows-q4-baseline cuda blue-cube 0.45 True
+windows-q4-baseline cuda number-orientation 0.31 False
+windows-q4-baseline cuda sideways-S 0.31 False
+windows-q4-baseline cuda synthetic-green-F 0.31 False
+windows-q4-baseline cuda synthetic-blue-cube 0.33 True
+windows-q4-baseline cuda synthetic-red-P 0.27 False
+windows-q4-baseline cuda synthetic-lowercase-k 0.3 True
+windows-q4-baseline cuda synthetic-yellow-square 0.31 True
+windows-q4-baseline cuda synthetic-purple-8 0.31 True
+windows-q4-baseline cuda real-green-F 0.38 True

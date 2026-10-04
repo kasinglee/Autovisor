@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-04",
+  "ram_bytes": 33407430656,
+  "cpu": {
+    "Name": "AMD Ryzen 7 9700X 8-Core Processor             ",
+    "NumberOfCores": 8,
+    "NumberOfLogicalProcessors": 16
+  },
+  "driver_cuda": "13.1",
+  "base_commit": "f6f2bcc4c6c5c7db569b3ec60baccf74629c9bee",
+  "gpu": [
+    "name, memory.total [MiB], driver_version",
+    "NVIDIA GeForce RTX 4080 SUPER, 16376 MiB, 591.86"
+  ],
+  "os": {
+    "Caption": "Microsoft Windows 11 专业版",
+    "Version": "10.0.26200",
+    "BuildNumber": "26200"
+  }
+}

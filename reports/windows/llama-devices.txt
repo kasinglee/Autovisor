@@ -1,0 +1,2 @@
+Available devices:
+  CUDA0: NVIDIA GeForce RTX 4080 SUPER (16375 MiB, 15031 MiB free)

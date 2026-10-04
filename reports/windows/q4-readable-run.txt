@@ -1,0 +1,22 @@
+windows-q4-readable cpu ready
+windows-q4-readable cpu blue-cube 14.09 True
+windows-q4-readable cpu number-orientation 13.53 True
+windows-q4-readable cpu sideways-S 13.91 True
+windows-q4-readable cpu synthetic-green-F 13.02 True
+windows-q4-readable cpu synthetic-blue-cube 13.66 True
+windows-q4-readable cpu synthetic-red-P 13.14 True
+windows-q4-readable cpu synthetic-lowercase-k 12.67 True
+windows-q4-readable cpu synthetic-yellow-square 12.66 True
+windows-q4-readable cpu synthetic-purple-8 12.64 True
+windows-q4-readable cpu real-green-F 19.27 False
+windows-q4-readable cuda ready
+windows-q4-readable cuda blue-cube 0.34 True
+windows-q4-readable cuda number-orientation 0.31 False
+windows-q4-readable cuda sideways-S 0.3 False
+windows-q4-readable cuda synthetic-green-F 0.28 True
+windows-q4-readable cuda synthetic-blue-cube 0.28 True
+windows-q4-readable cuda synthetic-red-P 0.3 True
+windows-q4-readable cuda synthetic-lowercase-k 0.31 True
+windows-q4-readable cuda synthetic-yellow-square 0.28 True
+windows-q4-readable cuda synthetic-purple-8 0.3 True
+windows-q4-readable cuda real-green-F 0.34 False

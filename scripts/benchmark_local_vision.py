@@ -10,6 +10,7 @@ import shutil
 import subprocess
 import sys
 import time
+import threading
 
 import httpx
 import psutil
@@ -25,6 +26,25 @@ def rss_mb(pid):
         return psutil.Process(pid).memory_info().rss / (1024 * 1024)
     except psutil.NoSuchProcess:
         return 0.0
+
+
+def nvidia_sample(pid=None):
+    """WDDM may hide process memory; retain whole-card data with its scope."""
+    if not shutil.which("nvidia-smi"):
+        return {"error": "nvidia-smi unavailable"}
+    options = {"capture_output": True, "text": True,
+               "creationflags": subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0}
+    try:
+        gpu = subprocess.run(["nvidia-smi", "--query-gpu=index,memory.used,utilization.gpu",
+                              "--format=csv,noheader,nounits"], timeout=5, **options)
+        processes = subprocess.run(["nvidia-smi", "--query-compute-apps=pid,used_memory",
+                                    "--format=csv,noheader,nounits"], timeout=5, **options)
+        server_vram = next((line.split(",", 1)[1].strip() for line in processes.stdout.splitlines()
+                            if line.split(",", 1)[0].strip() == str(pid)), None) if pid else None
+        return {"gpu_csv": gpu.stdout.strip(), "server_vram_mib": server_vram,
+                "server_pid": pid, "error": (gpu.stderr + processes.stderr).strip()}
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        return {"error": str(exc)}
 
 
 def main():
@@ -49,7 +69,7 @@ def main():
     devices = subprocess.run([binary, "--list-devices"], capture_output=True, text=True)
     device_text = devices.stdout + devices.stderr
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    cases = json.loads((ROOT / "tests/fixtures/vision/cases.json").read_text())
+    cases = json.loads((ROOT / "tests/fixtures/vision/cases.json").read_text(encoding="utf-8"))
     cases = [case for case in cases if args.split == "all" or case.get("split") == args.split]
     if not cases or args.repeats < 1:
         parser.error("Empty case set or invalid repeat count")
@@ -68,10 +88,23 @@ def main():
             continue
         log_path = args.output.parent / f"{args.name}-{backend}-server.log"
         run["command"] = command
+        run["nvidia_baseline"] = nvidia_sample()
+        run["resource_samples"] = []
         start = time.monotonic()
-        with log_path.open("w") as log:
+        with log_path.open("w", encoding="utf-8") as log:
             process = subprocess.Popen(command, stdout=log, stderr=subprocess.STDOUT)
             peak = [0.0]
+            stop_monitor = threading.Event()
+            phase = ["load"]
+            def monitor():
+                while not stop_monitor.is_set():
+                    sampled_rss = rss_mb(process.pid)
+                    peak[0] = max(peak[0], sampled_rss)
+                    run["resource_samples"].append({"elapsed_seconds": round(time.monotonic()-start, 3),
+                        "phase": phase[0], "rss_mb": round(sampled_rss, 1), **nvidia_sample(process.pid)})
+                    stop_monitor.wait(1.0)
+            monitor_thread = threading.Thread(target=monitor, daemon=True)
+            monitor_thread.start()
             try:
                 with httpx.Client(base_url="http://127.0.0.1:8091", timeout=120, trust_env=False) as client:
                     while True:
@@ -91,7 +124,6 @@ def main():
                     run["load_seconds"] = round(time.monotonic() - start, 2)
                     print(args.name, backend, "ready", flush=True)
                     # Sample throughout inference, not only after it finishes.
-                    import threading
                     stop_sample = threading.Event()
                     def sample():
                         while not stop_sample.wait(0.1):
@@ -104,6 +136,7 @@ def main():
                     try:
                         for trial in range(args.repeats * len(cases)):
                             case = cases[trial % len(cases)]
+                            phase[0] = case["id"]
                             with Image.open(ROOT / "tests/fixtures/vision" / case["file"]) as image:
                                 crop = image.crop(tuple(case["crop"]))
                                 crop = crop.resize((crop.width * args.image_scale, crop.height * args.image_scale))
@@ -191,7 +224,7 @@ def main():
                             except (ValueError, TypeError, KeyError):
                                 result["parse_error"] = True
                             run["cases"].append(result)
-                            args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2))
+                            args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
                             print(args.name, backend, case["id"], result["seconds"], result["point_inside_expected_box"], flush=True)
                     finally:
                         stop_sample.set()
@@ -202,6 +235,8 @@ def main():
                 run["error"] = str(exc)
                 print(args.name, backend, "FAILED", str(exc), flush=True)
             finally:
+                stop_monitor.set()
+                monitor_thread.join(timeout=12)
                 run["peak_rss_mb"] = round(peak[0], 1)
                 if process.poll() is None:
                     process.terminate()
@@ -211,12 +246,12 @@ def main():
                         process.kill()
                         process.wait()
                 run["memory_breakdown_lines"] = [
-                    line for line in log_path.read_text(errors="replace").splitlines()
+                    line for line in log_path.read_text(encoding="utf-8", errors="replace").splitlines()
                     if "common_memory_breakdown_print:" in line
                 ][-8:]
                 report_text = json.dumps(report, ensure_ascii=False, indent=2)
-                args.output.write_text(report_text)
-    args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2))
+                args.output.write_text(report_text, encoding="utf-8")
+    args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 if __name__ == "__main__":

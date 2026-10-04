@@ -8,7 +8,7 @@ are not switched to this branch.
 
 ```bash
 brew install llama.cpp
-uv sync --locked
+uv sync --locked --extra benchmark --extra captcha
 uv run python scripts/generate_vision_fixtures.py
 uv run python scripts/benchmark_local_vision.py \
   --model-dir /Users/jasonlei/.cache/autovisor-models/smolvlm-256m \
@@ -89,7 +89,7 @@ reporting only a lucky repeat. `--prompt grounded` adds an OpenCV candidate-ID
 stage; this is a combined algorithm, not a prompt-only improvement.
 
 ```bash
-uv sync --locked --extra captcha
+uv sync --locked --extra captcha --extra benchmark
 uv run python scripts/benchmark_local_vision.py \
   --model-dir /Users/jasonlei/.cache/autovisor-models/qwen25vl-3b-vision-q8 \
   --name q4-visionq8-grounded-ten --backends metal cpu \

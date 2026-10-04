@@ -20,5 +20,8 @@ captcha/
 logs/
 ./preview/*
 *.egg-info/
+models/
+*.gguf
+config.*.ini
 reports/local-vision/*-server.log
 reports/prompt-tuning/*-server.log

@@ -12,6 +12,7 @@ import sys
 import time
 
 import httpx
+import psutil
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,8 +21,10 @@ from modules.local_vision import decode_json, point_response_format, server_comm
 
 
 def rss_mb(pid):
-    result = subprocess.run(["ps", "-p", str(pid), "-o", "rss="], capture_output=True, text=True)
-    return float(result.stdout.strip() or 0) / 1024
+    try:
+        return psutil.Process(pid).memory_info().rss / (1024 * 1024)
+    except psutil.NoSuchProcess:
+        return 0.0
 
 
 def main():
@@ -36,7 +39,10 @@ def main():
     parser.add_argument("--split", choices=["all", "calibration", "holdout"], default="all")
     parser.add_argument("--repeats", type=int, default=1)
     parser.add_argument("--large-labels", action="store_true")
+    parser.add_argument("--threads", type=int, default=4)
     args = parser.parse_args()
+    if args.threads < 1:
+        parser.error("threads must be positive")
     binary = shutil.which("llama-server")
     if not binary:
         parser.error("llama-server not installed")
@@ -48,14 +54,14 @@ def main():
     if not cases or args.repeats < 1:
         parser.error("Empty case set or invalid repeat count")
     report = {"model": args.name, "devices": device_text, "memory_limit_gb": args.memory_limit_gb,
-              "prompt": args.prompt, "image_scale": args.image_scale, "split": args.split, "repeats": args.repeats, "large_labels": args.large_labels,
+              "prompt": args.prompt, "image_scale": args.image_scale, "split": args.split, "repeats": args.repeats, "large_labels": args.large_labels, "threads": args.threads,
               "method": "Annotated real and synthetic screenshots; supplied English instruction; JSON constrained decoding; absolute image-pixel output checked against normalized target boxes. Not live platform pass rate. RSS excludes some Metal allocations.",
               "runs": []}
     for backend in args.backends:
         run = {"backend": backend, "cases": []}
         report["runs"].append(run)
         try:
-            command = server_command(binary, args.model_dir / "model.gguf", args.model_dir / "mmproj.gguf", backend, devices=device_text)
+            command = server_command(binary, args.model_dir / "model.gguf", args.model_dir / "mmproj.gguf", backend, devices=device_text, threads=args.threads)
         except ValueError as exc:
             run["status"] = "unavailable"
             run["error"] = str(exc)

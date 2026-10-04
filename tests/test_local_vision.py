@@ -16,3 +16,7 @@ class BackendTests(unittest.TestCase):
     def test_cuda_fails_explicitly_on_mac(self):
         with self.assertRaises(ValueError):
             server_command("server", "model", "projector", "cuda", devices="MTL0: M4")
+
+    def test_thread_count_can_be_tuned_for_windows_cpu(self):
+        command = server_command("server", "model", "projector", "cpu", threads=8)
+        self.assertEqual(command[command.index("-t") + 1], "8")

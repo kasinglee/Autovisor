@@ -4,10 +4,10 @@ import json
 import re
 
 
-def server_command(binary, model, projector, backend, port=8091, devices=""):
+def server_command(binary, model, projector, backend, port=8091, devices="", threads=4):
     command = [str(binary), "-m", str(model), "--mmproj", str(projector),
                "--host", "127.0.0.1", "--port", str(port), "-c", "4096",
-               "--parallel", "1", "-t", "4", "--alias", "local-vision", "--verbosity", "4"]
+               "--parallel", "1", "-t", str(threads), "--alias", "local-vision", "--verbosity", "4"]
     if backend == "cpu":
         command += ["--device", "none", "-ngl", "0", "--no-mmproj-offload", "--no-op-offload"]
     elif backend in ("metal", "cuda"):

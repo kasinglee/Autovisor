@@ -17,6 +17,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+benchmark = [
+    "psutil>=6,<8",
+]
 captcha = [
     "numpy>=2,<3",
     "opencv-python>=4.10,<5",
